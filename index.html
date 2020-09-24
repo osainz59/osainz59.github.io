@@ -1,0 +1,98 @@
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewpoint" content="width=device-width, initial-sccale=1.0"> 
+        <!-- CSS only -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+        <!-- JS, Popper.js, and jQuery -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+        <!-- Google Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+        <!-- Bootstrap core CSS -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Material Design Bootstrap -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+
+        <!-- JQuery -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- Bootstrap tooltips -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+        <!-- Bootstrap core JavaScript -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        <!-- MDB core JavaScript -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+
+        <!-- Social Media buttons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+        <style>
+        </style>
+
+        <script>
+            function load(page) {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("content").innerHTML = this.responseText;
+                    }
+                };
+                xhttp.open("GET", 'pages/' + page, true);
+                xhttp.send();
+            }
+        </script>
+    
+    </head>
+    <body onload="load('about_me.html');" class="">
+        <div class="header shadow p-3 mb-5">
+            <div class="header-inside container">
+                <div class="row py-5 align-items-center container">
+                    <div class="col-md-12 col-lg-4 text-center container">
+                        <img style='height: auto; max-width: 75%;' class="rounded-circle img-thumbnail" 
+                        src="assets/img/selfie.png" alt="A selfie of myself.">
+                        
+                    </div>
+                    <div class="col-md-12 col-lg-8">
+                        <h1>Hi!</h1>
+                        <p>Ongi etorri! Bienvenid@! Wellcome to my website!</p>
+                        <p>My name is Oscar, I'm a computer scientist that would like to became researcher. 
+                            Even if my area of interest is Artificial Inteligence in general, I focus myself on Natural Language Processing specially on Information Extraction tasks. 
+                            If you want to know more about me consider following my work on GitHub and/or following me on Twitter.</p>
+                        <a href="#" class="fab fa-2x fa-twitter"></a>
+                        <a href="#" class="fab fa-2x fa-github black-text"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="navigation container py-3">
+            <nav class="nav justify-content-center">
+                <a class="nav-link active " onclick="load('about_me.html');">About me</a>
+                <a class="nav-link" onclick="load('projects.html');">Projects</a>
+                <!-- <a class="nav-link" onclick="load('cv.html');">CV</a> -->
+                <a class="nav-link" onclick="load('publications.html');">Publications</a>
+            </nav>
+        </div>
+
+        <div class="body">
+            <div id="content" class="container content">
+                
+            </div>
+        </div>
+        
+        <footer class="elegant-color-dark">
+            <div class="container py-5 text-center text-light">
+                Contact me by email <a href="" class="fas fa-envelope white-text"></a> :
+                <a>osainz006@ehu.eus</a>  or <a>osainz59@gmail.com</a>
+            </div>
+        </footer>
+    </body>
+</html>
