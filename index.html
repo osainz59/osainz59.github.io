@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" data-bs-theme="light">
 
 <head>
     <meta charset="utf-8">
@@ -18,16 +18,19 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
         crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-        crossorigin="anonymous"></script>
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
     <!-- Bootstrap core CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
 
@@ -44,70 +47,147 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
 
     <!-- Social Media buttons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
-    <style>
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
     <script>
-        function load(page) {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("content").innerHTML = this.responseText;
-                }
-            };
-            xhttp.open("GET", 'pages/' + page, true);
-            xhttp.send();
+        function toggle_dark_mode() {
+            var html = document.getElementsByTagName('html')[0]
+            var btn = document.getElementById('dark-mode-btn')
+            if (html.getAttribute('data-bs-theme') == "dark") {
+                btn.classList.replace('text-light', 'text-dark')
+                btn.innerHTML = "Dark mode"
+                html.setAttribute('data-bs-theme', "light")
+            } else {
+                btn.classList.replace('text-dark', 'text-light')
+                btn.innerHTML = "Light mode"
+                html.setAttribute('data-bs-theme', "dark")
+            }
         }
     </script>
 
 </head>
 
-<body onload="load('about_me.html');" class="">
-    <div class="header shadow p-3 mb-5">
+<body class="">
+    <div class="text-right">
+        <button id="dark-mode-btn" type="button" onclick="toggle_dark_mode()" class="btn btn-link text-dark">Light
+            mode</button>
+    </div>
+    <div class="header p-3 mb-5">
         <div class="header-inside container">
-            <div class="row py-5 align-items-center container">
-                <div class="col-md-12 col-lg-4 text-center container">
-                    <img style='height: auto; max-width: 75%;' class="rounded-circle img-thumbnail"
+            <div class="row py-4 align-items-center container">
+                <div class="col-md-12 col-lg-3 text-center container">
+                    <img style='height: auto; max-width: 90%;' class="rounded-circle img-thumbnail"
                         src="assets/img/selfie.png" alt="A selfie of myself.">
 
                 </div>
+                <div class="col-md-12 col-lg-1 py-3"></div>
                 <div class="col-md-12 col-lg-8">
-                    <h1>Hi!</h1>
-                    <p>Ongi etorri! Bienvenid@! Welcome to my website!</p>
-                    <p>My name is Oscar, I'm a computer scientist learning to be researcher.
-                        My area of interest in Artificial Intelligence (AI) in general, but, I focus my research on
-                        Natural Language Processing (NLP). More specifically in (low-resource) Information Extraction
-                        (IE). If you want to know more about me consider following my work on GitHub and/or following me
-                        on Twitter.</p>
+                    <h1>Oscar Sainz</h1>
+                    <p>PhD Student at the University of the Basque Country (UPV/EHU) <br>
+                        Member of IXA Research group and HiTZ Research center
+                    </p>
+                    <p><b>Email:</b> oscar.sainz@ehu.eus</p>
                     <a href="https://twitter.com/osainz59" class="fab fa-2x fa-twitter"></a>
-                    <a href="https://github.com/osainz59" class="fab fa-2x fa-github black-text"></a>
+                    <a href="https://github.com/osainz59" class="fab fa-2x fa-github"></a>
+                    <a href="https://scholar.google.es/citations?user=3Z5zok8AAAAJ&hl=en"
+                        class="ai ai-google-scholar-square ai-2x"></a>
+                    <a href="https://www.semanticscholar.org/author/Oscar-Sainz/1724648481"
+                        class="ai ai-semantic-scholar-square ai-2x"></a>
+
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="navigation container py-3">
-        <nav class="nav justify-content-center">
-            <a class="nav-link active " onclick="load('about_me.html');">About me</a>
-            <a class="nav-link" onclick="load('projects.html');">Projects</a>
-            <!-- <a class="nav-link" onclick="load('cv.html');">CV</a> -->
-            <a class="nav-link" onclick="load('publications.html');">Publications</a>
-        </nav>
-    </div>
-
+    <hr>
     <div class="body">
+
         <div id="content" class="container content">
+            <div class="about-me py-4">
+                <h3>About me</h3>
+                <p>Computer Science Engineer (2019) and a Master on Natura Language Analyzing and
+                    Processing (2020) by the University of the Basque Country (UPV/EHU). Right now, I am a PhD
+                    Student on Natural Language Processing at the University of the Basque Country (UPV/EHU).
+                    Part of the IXA research group (ixa.si.ehu.eus, 2018-), group A by the Basque Goverment.
+                    I received the research Ikasiker grant (2018-2019) and the Basque Goverment predoctoral
+                    grant (2020-present). I participated on 3 R&D project founded through a competitive call by
+                    the Basque Goverment. I have several publications (see Publications section) on international
+                    conferences, which some of them are on top conferences (SCIE 1). My research focuses on
+                    Artificial Intelligence and Language Technologies, more precisely, I am interested on efficient
+                    methods on low resource Information Extraction.
+                </p>
+            </div>
+            <hr>
+            <div class="experience py-4">
+                <h3>Experience</h3>
+                <ul>
+                    <li><b>2020-present:</b> Ph.D. in Language Analyzing and Processing at the University of the Basque
+                        Country (UPV/EHU)</li>
+                    <li><b>2018-2020:</b> Research Intern at IXA Group</li>
+                    <li><b>2019-2020:</b> M.A. in Language Analyzing and Processing at the University of the Basque
+                        Country (UPV/EHU)</li>
+                    <li><b>2015-2019:</b> B.A. in Computer Science at the University of the Basque Country (UPV/EHU)
+                    </li>
+                </ul>
+            </div>
+            <hr>
+            <div class="publications py-4">
+                <h3>Publications</h3>
+                <ul>
+                    <li>
+                        <a href="">What do Language Models know about word senses? Zero-Shot WSD with Language Models
+                            and Domain Inventories</a> <br>
+                        <b>Oscar Sainz</b>, Oier Lopez de Lacalle, Eneko Agirre and German Rigau. <br>
+                        GWC 2023
+                    </li>
+                    <li>
+                        <a href="https://aclanthology.org/2022.findings-naacl.187/">Textual Entailment for Event
+                            Argument Extraction: Zero- and Few-Shot with Multi-Source Learning</a> <br>
+                        <b>Oscar Sainz</b>, Itziar Gonzalez-Dios, Oier Lopez de Lacalle, Bonan Min and Eneko Agirre.<br>
+                        NAACL-Findings 2022
+                    </li>
+                    <li>
+                        <a href="https://aclanthology.org/2022.naacl-demo.4/">ZS4IE: A toolkit for Zero-Shot Information
+                            Extraction with simple Verbalizations</a> <br>
+                        <b>Oscar Sainz</b>, Haoling Qiu, Oier Lopez de Lacalle, Eneko Agirre and Bonan Min.<br>
+                        NAACL 2022
+                    </li>
+                    <li>
+                        <a href="https://arxiv.org/abs/2111.01243">Recent Advances in Natural Language Processing via
+                            Large Pre-Trained Language Models: A Survey</a> <br>
+                        Bonan Min, Hayley Ross, Elior Sulem, Amir Pouran Ben Veyseh, Thien Huu Nguyen, <b>Oscar
+                            Sainz</b>, Eneko Agirre, Ilana Heinz and Dan Roth. <br>
+                        ArXiv 2021
+                    </li>
+                    <li>
+                        <a href="https://aclanthology.org/2021.emnlp-main.92/">Label Verbalization and Entailment for
+                            Effective Zero and Few-Shot Relation Extraction</a> <br>
+                        <b>Oscar Sainz</b>, Oier Lopez de Lacalle, Gorka Labaka, Ander Barrena and Eneko Agirre. <br>
+                        EMNLP 2021
+                    </li>
+                    <li>
+                        <a href="https://aclanthology.org/2021.gwc-1.6/">Ask2Transformers: Zero-Shot Domain labelling
+                            with Pretrained Language Models</a> <br>
+                        <b>Oscar Sainz</b> and German Rigau. <br>
+                        GWC 2021
+                    </li>
+                    <li>
+                        <a href="https://aclanthology.org/2020.lrec-1.270/">Domain Adapted Distant Supervision for
+                            Pedagogically Motivated Relation Extraction</a> <br>
+                        <b>Oscar Sainz</b>, Oier Lopez de Lacalle, Itziar Aldabe and Montse Maritxalar. <br>
+                        LREC 2020
+                    </li>
+                </ul>
+            </div>
 
         </div>
     </div>
 
-    <footer class="elegant-color-dark">
-        <div class="container py-5 text-center text-light">
-            Contact me by email <a href="" class="fas fa-envelope white-text"></a> :
+    <footer class="">
+        <div class="container py-5 text-center">
+            Contact me by email <a href="" class="fas fa-envelope"></a> :
             <a>oscar.sainz@ehu.eus</a>
+            <p>©2023 Oscar Sainz</p>
         </div>
     </footer>
 </body>
