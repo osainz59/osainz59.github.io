@@ -109,25 +109,30 @@
     </header>
 
     <main>
-        <div class="py-5 bg-light">
+        <ul class="nav justify-content-center sticky-top bg-dark shadow">
+            <li class="nav-item">
+                <a class="nav-link text-light" href="#about-me">About me</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" href="#experience">Experience</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" href="#slides">Slides</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" href="#publications">Publications</a>
+            </li>
+        </ul>
+
+        <div class="py-3 bg-light">
             <!-- Back to top button -->
             <button type="button" class="btn btn-floating btn-lg" id="btn-back-to-top">
                 <i class="fas fa-arrow-up"></i>
             </button>
 
             <div class="container px-md-5 px-3">
-                <ul class="nav justify-content-center pb-3 mb-3 d-none d-lg-flex d-print-flex">
-                    <li class="nav-item"><a type="button" href="#about-me"
-                            class="btn btn-outline-dark rounded-pill px-4 mx-5">About me</a></li>
-                    <li class="nav-item"><a type="button" href="#experience"
-                            class="btn btn-outline-dark rounded-pill px-4 mx-5">Experience</a></li>
-                    <li class="nav-item"><a type="button" href="#slides"
-                            class="btn btn-outline-dark rounded-pill px-4 mx-5">Slides</a></li>
-                    <li class="nav-item"><a type="button" href="#publications"
-                            class="btn btn-outline-dark rounded-pill px-4 mx-5">Publications</a>
-                    </li>
-                </ul>
-                <div class="about-me px-4 py-5" id="about-me">
+
+                <div class="about-me px-4 p-5" id="about-me">
                     <h2 class="pb-2 border-bottom">About me</h2>
                     <p class="lead">Computer Science Engineer (2019) and a Master on Natura Language Analyzing and
                         Processing (2020) by the University of the Basque Country (UPV/EHU). Right now, I am a PhD
@@ -141,7 +146,7 @@
                         methods on low resource Information Extraction.
                     </p>
                 </div>
-                <div class="experience px-4 py-5" id="experience">
+                <div class="experience px-4 p-5" id="experience">
                     <h2 class="pb-2 border-bottom">Experience</h2>
                     <div class="row g-0 position-relative p-2 mx-2">
                         <div class="col-lg-2 col-md-12 text-center p-3">
@@ -151,8 +156,9 @@
                         <div class="col-lg-10 col-md-12 p-3 ps-md-0">
                             <h5 class="mt-0">FPI Researcher</h5>
                             <h6 class="mt-0">2020-present</h6>
-                            <p class="lead">Ph.D. in Language Analyzing and Processing<br><small>University of the Basque Country (UPV/EHU)</small></p>
-                            
+                            <p class="lead">Ph.D. in Language Analyzing and Processing<br><small>University of the
+                                    Basque Country (UPV/EHU)</small></p>
+
                         </div>
                     </div>
                     <div class="row g-0 position-relative p-2 mx-2">
@@ -174,7 +180,8 @@
                         <div class="col-lg-10 col-md-12 p-3 ps-md-0">
                             <h5 class="mt-0">Master</h5>
                             <h6 class="mt-0">2019-2020</h6>
-                            <p class="lead">Master in Language Analyzing and Processing<br><small>University of the Basque Country (UPV/EHU)</small></p>
+                            <p class="lead">Master in Language Analyzing and Processing<br><small>University of the
+                                    Basque Country (UPV/EHU)</small></p>
                         </div>
                     </div>
                     <div class="row g-0 position-relative p-2 mx-2">
@@ -185,12 +192,13 @@
                         <div class="col-lg-10 col-md-12 p-3 ps-md-0">
                             <h5 class="mt-0">Bachelor</h5>
                             <h6 class="mt-0">2015-2019</h6>
-                            <p class="lead">Bachelor in Computer Science<br><small>University of the Basque Country (UPV/EHU)</small></p>
+                            <p class="lead">Bachelor in Computer Science<br><small>University of the Basque Country
+                                    (UPV/EHU)</small></p>
                         </div>
                     </div>
                 </div>
 
-                <div class="slides px-4 py-5" id="slides">
+                <div class="slides px-4 p-5" id="slides">
                     <h2 class="pb-2 border-bottom">Slides & Presentations</h2>
                     <div class="row g-3">
                         <p>See all the slides and presentations <a href="">here</a>.</p>
@@ -199,29 +207,30 @@
 
                         <div class="col">
                             <div class="card shadow-sm">
-                                <img class="card-img-top" width="100%" height="180"
-                                     src="assets/slides/GWC2023.svg">
+                                <img class="card-img-top" width="100%" height="180" src="assets/slides/GWC2023.svg">
 
                                 <div class="card-body bg-light">
                                     <h5 class="card-title">GWC2023</h5>
                                     <p class="card-text">What do Language Models know about word senses?</p>
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <a type="button" class="btn btn-sm btn-outline-secondary" href="assets/slides/GWC2023.pdf">Download</a>
+                                        <a type="button" class="btn btn-sm btn-outline-secondary"
+                                            href="assets/slides/GWC2023.pdf">Download</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="col">
                             <div class="card shadow-sm">
-                                <img class="card-img-top" width="100%" height="180"
-                                     src="assets/slides/NAACL2022.svg">
+                                <img class="card-img-top" width="100%" height="180" src="assets/slides/NAACL2022.svg">
 
                                 <div class="card-body bg-light">
                                     <h5 class="card-title">NAACL2022</h5>
-                                    <p class="card-text">Textual Entailment for Event Argument Extraction: Zero- and Few-shot with Multi-...</p>
+                                    <p class="card-text">Textual Entailment for Event Argument Extraction: Zero- and
+                                        Few-shot with Multi-...</p>
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <a type="button" class="btn btn-sm btn-outline-secondary" href="assets/slides/NAACL2022.pdf">Download</a>
+                                        <a type="button" class="btn btn-sm btn-outline-secondary"
+                                            href="assets/slides/NAACL2022.pdf">Download</a>
                                     </div>
                                 </div>
                             </div>
@@ -229,23 +238,24 @@
 
                         <div class="col">
                             <div class="card shadow-sm">
-                                <img class="card-img-top" width="100%" height="180"
-                                     src="assets/slides/EMNLP2021.svg">
+                                <img class="card-img-top" width="100%" height="180" src="assets/slides/EMNLP2021.svg">
 
                                 <div class="card-body bg-light">
                                     <h5 class="card-title">EMNLP2021</h5>
-                                    <p class="card-text">Label Verbalization and Entailment for Effective Zero- and Few-Shot Relation Extraction</p>
+                                    <p class="card-text">Label Verbalization and Entailment for Effective Zero- and
+                                        Few-Shot Relation Extraction</p>
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <a type="button" class="btn btn-sm btn-outline-secondary" href="assets/slides/EMNLP2021.pdf">Download</a>
+                                        <a type="button" class="btn btn-sm btn-outline-secondary"
+                                            href="assets/slides/EMNLP2021.pdf">Download</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
 
-                <div class="publications px-4 py-5" id="publications">
+                <div class="publications px-4 p-5" id="publications">
                     <h2 class="pb-2 border-bottom">Publications</h2>
                     <ul>
                         <li>
@@ -301,7 +311,7 @@
                     </ul>
                 </div>
             </div>
-            
+
         </div>
 
     </main>
