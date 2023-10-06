@@ -144,7 +144,8 @@
                     </p>
                     <p class="lead">
                         My research revolves around two key areas: <b>low-resource information extraction and data
-                        contamination</b>. I'm passionate about finding creative solutions to extract meaningful insights
+                            contamination</b>. I'm passionate about finding creative solutions to extract meaningful
+                        insights
                         from limited data resources, as seen in my work on topics like zero and few-shot information
                         extraction. Additionally, I tackle the
                         challenges of data contamination, aiming to improve data quality and reliability in Natural
@@ -276,7 +277,15 @@
 
                 <div class="publications px-4 p-5" id="publications">
                     <h2 class="pb-2 border-bottom">Publications</h2>
-                    <ul>
+                    <ul id="publication-list">
+                        <!--
+                        <li>
+                            <a href="https://arxiv.org/abs/2310.03668">GoLLIE: Annotation Guidelines improve Zero-Shot
+                                Information-Extraction</a> <br>
+                            <b>Oscar Sainz</b>, Iker García-Ferrero, Rodrigo Agerri, Oier Lopez de Lacalle, German Rigau
+                            and Eneko Agirre<br>
+                            ArXiv 2023
+                        </li>
                         <li>
                             <a href="https://dl.acm.org/doi/10.1145/3605943">Recent Advances in Natural Language
                                 Processing via Large Pre-Trained Language Models: A Survey</a> <br>
@@ -326,6 +335,7 @@
                             <b>Oscar Sainz</b>, Oier Lopez de Lacalle, Itziar Aldabe and Montse Maritxalar. <br>
                             LREC 2020
                         </li>
+                        -->
                     </ul>
                 </div>
             </div>
@@ -376,6 +386,41 @@
             document.body.scrollTop = 0;
             document.documentElement.scrollTop = 0;
         }
+
+        // Load publications
+        var xhttp = new XMLHttpRequest();
+        xhttp.responseType = 'json';
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                publications_data = xhttp.response.data;
+
+                publications_data.sort(function(a, b){return b.citationCount - a.citationCount});
+                console.log(publications_data);
+
+                let pub_html = document.getElementById("publication-list")
+                for (publication of publications_data) {
+                    // pub_html.innerHTML += "<li>";
+                    pub_html.innerHTML += '<li><a href="' +publication.url + '">' + publication.title + '</a><br>';
+                    let authors = "";
+                    for (author of publication.authors) {
+                        if (author.name != "Oscar Sainz") {
+                            authors += author.name + ", ";
+                        } else {
+                            authors += "<u>" + author.name + "</u>, ";
+                        }
+                        
+                    }
+                    authors = authors.slice(0, -2);
+                    pub_html.innerHTML += '<b>Authors</b>: ' + authors + '<br>';
+                    console.log(authors);
+                    pub_html.innerHTML += '<b>Year</b>: ' + publication.year + ' | <b>Venue</b>: ' + publication.venue + '<br>';
+                    pub_html.innerHTML += '<b>Citations</b>: ' + publication.citationCount;
+                    pub_html.innerHTML += "</li>";
+                }
+            }
+        };
+        xhttp.open("GET", "https://api.semanticscholar.org/graph/v1/author/1724648481/papers?fields=url,title,year,authors,citationCount,venue", true);
+        xhttp.send();
     </script>
 
 
