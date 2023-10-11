@@ -89,6 +89,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 
+    <!-- GitHub cards -->
+    <script src="scripts/repo-card.js"></script>
 
 </head>
 
@@ -124,7 +126,7 @@
     <main>
         <ul class="nav justify-content-center sticky-top bg-dark shadow">
             <li class="nav-item">
-                <a class="nav-link text-light" href="#about-me">About me</a>
+                <a class="nav-link text-light" href="#about-me">About</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-light" href="#activity">Activity</a>
@@ -133,7 +135,7 @@
                 <a class="nav-link text-light" href="#resources">Resources</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-light" href="#publications">Publications</a>
+                <a class="nav-link text-light" href="#publications">Papers</a>
             </li>
         </ul>
 
@@ -273,6 +275,16 @@
                         </div>
 
                     </div>
+
+                    <h4 class="pt-4">Alumni</h4>
+                    <div>
+                        <ul>
+                            <li>
+                                Mikel Zubillaga (2022-2023): BSc student at the University of the Basque Country,
+                                co-advised by Oier Lopez de Lacalle and Eneko Agirre.
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
 
@@ -280,7 +292,8 @@
                     <h2 class="pb-2 border-bottom">Resources</h2>
                     <h4 class="pt-2">Slides</h4>
                     <div class="row g-3">
-                        <p>See all the slides and presentations <a href="slides.html">here</a>.</p>
+                        <p>See all the slides and presentations <a href="slides.html"
+                                style="text-decoration: none">here</a>.</p>
                     </div>
                     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
 
@@ -335,69 +348,26 @@
                         </div>
 
                     </div>
+
+                    <h4 class="pt-4">Repositories</h4>
+                    <div class="row g-3">
+                        <p>See all the repositories on my <a href="https://github.com/osainz59" class="fab fa-github"
+                                style="text-decoration: none"></a> <a href="https://github.com/osainz59"
+                                style="text-decoration: none">GitHub</a>.</p>
+                    </div>
+                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+                        <div class="col repo-card" data-repo="hitz-zentroa/GoLLIE"></div>
+                        <div class="col repo-card" data-repo="osainz59/Ask2Transformers"></div>
+                        <div class="col repo-card" data-repo="hitz-zentroa/lm-contamination"></div>
+                        <div class="col repo-card" data-repo="osainz59/t5-encoder"></div>
+                    </div>
+
                 </div>
 
                 <div class="publications px-4 p-5" id="publications">
                     <h2 class="pb-2 border-bottom">Publications</h2>
                     <ul id="publication-list">
-                        <!--
-                        <li>
-                            <a href="https://arxiv.org/abs/2310.03668">GoLLIE: Annotation Guidelines improve Zero-Shot
-                                Information-Extraction</a> <br>
-                            <b>Oscar Sainz</b>, Iker García-Ferrero, Rodrigo Agerri, Oier Lopez de Lacalle, German Rigau
-                            and Eneko Agirre<br>
-                            ArXiv 2023
-                        </li>
-                        <li>
-                            <a href="https://dl.acm.org/doi/10.1145/3605943">Recent Advances in Natural Language
-                                Processing via Large Pre-Trained Language Models: A Survey</a> <br>
-                            Bonan Min, Hayley Ross, Elior Sulem, Amir Pouran Ben Veyseh, Thien Huu Nguyen, <b>Oscar
-                                Sainz</b>, Eneko Agirre, Ilana Heinz and Dan Roth. <br>
-                            ACM Computing Surveys 2023 - ArXiv 2021
-                        </li>
-                        <li>
-                            <a href="https://arxiv.org/abs/2302.03353">What do Language Models know about word senses?
-                                Zero-Shot WSD with Language Models
-                                and Domain Inventories</a> <br>
-                            <b>Oscar Sainz</b>, Oier Lopez de Lacalle, Eneko Agirre and German Rigau. <br>
-                            GWC 2023
-                        </li>
-                        <li>
-                            <a href="https://aclanthology.org/2022.findings-naacl.187/">Textual Entailment for Event
-                                Argument Extraction: Zero- and Few-Shot with Multi-Source Learning</a> <br>
-                            <b>Oscar Sainz</b>, Itziar Gonzalez-Dios, Oier Lopez de Lacalle, Bonan Min and Eneko
-                            Agirre.<br>
-                            NAACL-Findings 2022
-                        </li>
-                        <li>
-                            <a href="https://aclanthology.org/2022.naacl-demo.4/">ZS4IE: A toolkit for Zero-Shot
-                                Information
-                                Extraction with simple Verbalizations</a> <br>
-                            <b>Oscar Sainz</b>, Haoling Qiu, Oier Lopez de Lacalle, Eneko Agirre and Bonan Min.<br>
-                            NAACL 2022
-                        </li>
-                        <li>
-                            <a href="https://aclanthology.org/2021.emnlp-main.92/">Label Verbalization and Entailment
-                                for
-                                Effective Zero and Few-Shot Relation Extraction</a> <br>
-                            <b>Oscar Sainz</b>, Oier Lopez de Lacalle, Gorka Labaka, Ander Barrena and Eneko Agirre.
-                            <br>
-                            EMNLP 2021
-                        </li>
-                        <li>
-                            <a href="https://aclanthology.org/2021.gwc-1.6/">Ask2Transformers: Zero-Shot Domain
-                                labelling
-                                with Pretrained Language Models</a> <br>
-                            <b>Oscar Sainz</b> and German Rigau. <br>
-                            GWC 2021
-                        </li>
-                        <li>
-                            <a href="https://aclanthology.org/2020.lrec-1.270/">Domain Adapted Distant Supervision for
-                                Pedagogically Motivated Relation Extraction</a> <br>
-                            <b>Oscar Sainz</b>, Oier Lopez de Lacalle, Itziar Aldabe and Montse Maritxalar. <br>
-                            LREC 2020
-                        </li>
-                        -->
+
                     </ul>
                 </div>
             </div>
@@ -449,6 +419,15 @@
             document.documentElement.scrollTop = 0;
         }
 
+        // Copy to clipboard function
+        function copy_to_clipboard(copyText) {
+            // Copy the text inside the text field
+            navigator.clipboard.writeText(copyText);
+
+            // Alert the copied text
+            alert("Copied the text: " + unescape(copyText));
+        }
+
         // Load publications
         var xhttp = new XMLHttpRequest();
         xhttp.responseType = 'json';
@@ -462,7 +441,7 @@
                 let pub_html = document.getElementById("publication-list")
                 for (publication of publications_data) {
                     // pub_html.innerHTML += "<li>";
-                    pub_html.innerHTML += '<li class="py-2"><a href="' + publication.url + '">' + publication.title + '</a>';
+                    pub_html.innerHTML += '<li class="py-2"><a href="' + publication.url + '" style="text-decoration: none">' + publication.title + '</a>';
                     let authors = "";
                     for (author of publication.authors) {
                         if (author.name != "Oscar Sainz") {
@@ -478,12 +457,13 @@
                     pub_html.innerHTML += '<span class="badge border-dark text-dark rounded-pill"><img width="15" height="15" src="assets/img/quote-svgrepo-com.svg"/>' + publication.citationCount + "</span>";
                     pub_html.innerHTML += '<span class="badge border-dark text-dark rounded-pill"><img width="15" height="15" src="assets/img/date-range-svgrepo-com.svg"/> ' + publication.year + "</span>";
                     pub_html.innerHTML += '<span class="badge border-dark text-dark rounded-pill"><img width="15" height="15" src="assets/img/book-svgrepo-com.svg"/> ' + publication.venue + "</span>";
+                    pub_html.innerHTML += '<span class="badge border-dark text-dark rounded-pill"> <a onclick="copy_to_clipboard(\'' + escape(publication.citationStyles["bibtex"]) + '\')">BibTex</a></span>';
                     // pub_html.innerHTML += '<small> <b>Year</b>: ' + publication.year + ' | <b>Venue</b>: ' + publication.venue + '<br></small>';
                     pub_html.innerHTML += "</li>";
                 }
             }
         };
-        xhttp.open("GET", "https://api.semanticscholar.org/graph/v1/author/1724648481/papers?fields=url,title,year,authors,citationCount,venue", true);
+        xhttp.open("GET", "https://api.semanticscholar.org/graph/v1/author/1724648481/papers?fields=url,title,year,authors,citationCount,venue,citationStyles", true);
         xhttp.send();
     </script>
 
