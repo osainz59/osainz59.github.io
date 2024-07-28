@@ -46,8 +46,9 @@
                 </div>
                 <div class="col-md-6 col-12 fw-normal">
                     <h1 class="display-5 fw-normal lh-1 mb-3">Oscar Sainz</h1>
-                    <p class="text fs-5">Postdoctoral Researcher @ University of the Basque Country <br>
-                        Member of Ixa group & HiTZ center</p>
+                    <p class="text fs-5">Postdoctoral Researcher
+                        <br> <i>University of the Basque Country</i>
+                        <br> <i>Ixa - HiTZ Center</i></p>
                     <p class="fs-5"><b>Email:</b> oscar.sainz@ehu.eus</p>
                     <div class="d-grid gap-2 d-flex justify-content-md-start">
                         <a href="https://twitter.com/osainz59" class="fab fa-2x fa-twitter"
@@ -170,12 +171,12 @@
     <div id="activity" class="bg-body-tertiary fw-normal">
         <div class="py-5 px-3 w-sm-100 w-lg-50 mx-auto">
             <div class="container py-3 px-3" id="publications">
-                <h2 class="border-bottom">Recent publications</h2>
+                <h2 class="border-bottom">Featured publications</h2>
 
                 <ul id="publication-list" class="py-3">
 
                 </ul>
-                <p>Showing last 10 publications. For more visit my <a
+                <p>For more visit my <a
                         href="https://scholar.google.es/citations?user=3Z5zok8AAAAJ&hl=es">Google Scholar</a> or <a
                         href="https://www.semanticscholar.org/author/Oscar-Sainz/1724648481">Semantic Scholar</a> page.
                 </p>
@@ -565,9 +566,13 @@
         }
 
         function compare_paper(a, b) {
-            if (a.publicationDate == null) return 1;
-            if (b.publicationDate == null) return 0;
-            return a.publicationDate > b.publicationDate ? 0 : 1;
+            console.log(a);
+            // if (a.publicationDate == null) return 1;
+            // if (b.publicationDate == null) return 0;
+            // return a.publicationDate > b.publicationDate ? 0 : 1;
+            if (a.citationCount == null) return 1;
+            if (b.citationCount == null) return 0;
+            return a.citationCount > b.citationCount ? 0 : 1;
         }
 
         // Load publications
