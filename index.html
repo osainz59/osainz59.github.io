@@ -569,9 +569,9 @@
             // if (a.publicationDate == null) return 1;
             // if (b.publicationDate == null) return 0;
             // return a.publicationDate > b.publicationDate ? 0 : 1;
-            if (a.citationCount == null) return 1;
-            if (b.citationCount == null) return 0;
-            return a.citationCount > b.citationCount ? 0 : 1;
+            // if (a.citationCount == null) return 1;
+            // if (b.citationCount == null) return 0;
+            return  b.citationCount - a.citationCount;
         }
 
         // Load publications
@@ -581,6 +581,7 @@
             if (this.readyState == 4 && this.status == 200) {
                 publications_data = xhttp.response.data;
                 publications_data.sort(compare_paper);
+                console.log(publications_data)
 
                 let pub_html = document.getElementById("publication-list")
                 let i = 0;
