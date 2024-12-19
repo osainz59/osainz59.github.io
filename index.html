@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"  data-bs-theme="light">
+<html lang="en" data-bs-theme="light">
 
 <head>
     <meta charset="utf-8">
@@ -72,7 +72,6 @@
         a:hover {
             text-decoration: underline;
         }
-
     </style>
 </head>
 
@@ -80,7 +79,8 @@
     <header>
         <div class="container">
             <div class="text-center mt-4 mb-5">
-                <img src="assets\img\oscar2_0_upscaled_square.jpg" class="rounded-circle border shadow-sm" alt="Profile Picture" height="150px">
+                <img src="assets\img\oscar2_0_upscaled_square.jpg" class="rounded-circle border shadow-sm"
+                    alt="Profile Picture" height="150px">
                 <h1 class="mt-2">Oscar Sainz</h1>
                 <div class="social-links mt-3 d-flex justify-content-center gap-3">
                     <div>
@@ -89,7 +89,8 @@
                         </a>
                     </div>
                     <div>
-                        <a href="https://scholar.google.es/citations?user=3Z5zok8AAAAJ" class="text-dark text-decoration-none">
+                        <a href="https://scholar.google.es/citations?user=3Z5zok8AAAAJ"
+                            class="text-dark text-decoration-none">
                             <i class="bi bi-mortarboard"></i> Scholar
                         </a>
                     </div>
@@ -119,9 +120,6 @@
                                 <a class="nav-link active" href="#about-me">About me</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#publications">Publications</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" href="#Activities">Activities</a>
                             </li>
                             <li class="nav-item">
@@ -129,6 +127,9 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#Students">Students</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#publications">Publications</a>
                             </li>
                         </ul>
                     </div>
@@ -149,30 +150,18 @@
                         (particularly Basque), and data contamination in LLMs.</p>
                 </section>
 
-                <section id="publications">
-                    <h2>Featured publications</h2>
-                    <hr class="mt-0 mb-3">
-
-                    <p>For more visit my <a href="https://scholar.google.es/citations?user=3Z5zok8AAAAJ&hl=es">Google
-                            Scholar</a> or <a
-                            href="https://www.semanticscholar.org/author/Oscar-Sainz/1724648481">Semantic Scholar</a>
-                        page.
-                    </p>
-
-                    <ul id="publication-list" class="mb-0">
-
-                    </ul>
-
-                </section>
-
                 <section id="Activities">
                     <h2>Activities</h2>
                     <hr class="mt-0 mb-4">
 
                     <ul>
-                        <li>Co-organizer of <a href="https://conda-workshop.github.io/">The First Data Contamination Workshop (CONDA)</a>.</li>
-                        <li>4 months visiting researcher (2024 September-December) at the <a href="https://www.cis.uni-muenchen.de/ueber_uns/index.html">LMU Munich</a> with Prof. Dr. Hinrich Schütze.</li>
-                        <li>Active reviewer for ML and NLP conferences: ICLR, *ACL (ARR), EMNLP, LREC, Coling, ... since 2021.</li>
+                        <li>Co-organizer of <a href="https://conda-workshop.github.io/">The First Data Contamination
+                                Workshop (CONDA)</a>.</li>
+                        <li>4 months visiting researcher (2024 September-December) at the <a
+                                href="https://www.cis.uni-muenchen.de/ueber_uns/index.html">LMU Munich</a> with Prof.
+                            Dr. Hinrich Schütze.</li>
+                        <li>Active reviewer for ML and NLP conferences: ICLR, *ACL (ARR), EMNLP, LREC, Coling, ... since
+                            2021.</li>
                     </ul>
                 </section>
 
@@ -193,11 +182,28 @@
                     <hr class="mt-0 mb-4">
 
                     <ul>
-                        <li>Mikel Zubillaga (2022-present): BSc and PhD student at the University of the Basque Country, co-advised with Oier Lopez de Lacalle and Eneko Agirre.</li>
-                        <li>Neil de la Fuente (2024): Summer internship at HiTZ Center, co-advised with Iker García-Ferrero and Eneko Agirre.</li>
+                        <li>Mikel Zubillaga (2022-present): BSc and PhD student at the University of the Basque Country,
+                            co-advised with Oier Lopez de Lacalle and Eneko Agirre.</li>
+                        <li>Neil de la Fuente (2024): Summer internship at HiTZ Center, co-advised with Iker
+                            García-Ferrero and Eneko Agirre.</li>
                     </ul>
                 </section>
 
+                <section id="publications">
+                    <h2>Featured publications</h2>
+                    <hr class="mt-0 mb-3">
+
+                    <p>For more visit my <a href="https://scholar.google.es/citations?user=3Z5zok8AAAAJ&hl=es">Google
+                            Scholar</a> or <a
+                            href="https://www.semanticscholar.org/author/Oscar-Sainz/1724648481">Semantic Scholar</a>
+                        page.
+                    </p>
+
+                    <ul id="publication-list" class="mb-0">
+
+                    </ul>
+
+                </section>
 
             </div>
         </div>
@@ -293,7 +299,7 @@
                 for (publication of publications_data) {
                     // pub_html.innerHTML += "<li>";
                     if (i >= 10) break;
-                    
+
                     let _html = '<li class="py-2"><a href="' + publication.url + '" style="text-decoration: none">' + publication.title + '.</a> ';
                     // pub_html.innerHTML += '<li class="py-2"><a href="' + publication.url + '" style="text-decoration: none">' + publication.title + '.</a>';
                     let authors = "";
