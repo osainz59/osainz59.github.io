@@ -18,131 +18,632 @@
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Oscar Sainz | Site" />
 
-
-
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/monaspace@latest/index.css">
 
     <style>
+        :root {
+            --primary-color: #3d5a80;
+            --secondary-color: #98c1d9;
+            --accent-color: #ee6c4d;
+            --light-color: #f0f5f9;
+            --dark-color: #293241;
+            --text-color: #333;
+            --bg-color: #f7f9fc;
+            --card-bg: #ffffff;
+            --section-spacing: 4rem;
+            --mono-font: 'MonaspaceVariable', 'Monaspace Neon', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            --body-font: 'MonaspaceVariable', 'Monaspace Neon', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        }
+
+        [data-bs-theme="dark"] {
+            --primary-color: #98c1d9;
+            --secondary-color: #3d5a80;
+            --accent-color: #ee6c4d;
+            --light-color: #293241;
+            --dark-color: #f0f5f9;
+            --text-color: #e0e0e0;
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+        }
+
         body {
-            font-family: 'Times New Roman', Times, serif;
-            background-color: #f8f7f0;
+            font-family: var(--body-font);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            -webkit-overflow-scrolling: touch;
         }
 
         .container {
-            max-width: 50% !important;
+            max-width: 1200px;
         }
 
-
-
-        @media (max-width: 992px) {
-            .container {
-                max-width: 100% !important;
+        .container.main-content {
+            max-width: 1100px !important;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        @media (min-width: 1400px) {
+            .container.main-content {
+                max-width: 1000px !important; /* Narrower on very large screens */
             }
         }
 
+        @media (min-width: 1200px) and (max-width: 1399px) {
+            .container.main-content {
+                max-width: 980px !important;
+            }
+        }
+
+        @media (min-width: 992px) and (max-width: 1199px) {
+            .container.main-content {
+                max-width: 900px !important;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 991px) {
+            .container.main-content {
+                max-width: 90% !important;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .container.main-content {
+                max-width: 95% !important;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .col-lg-3 {
+                width: 22%; /* Slightly narrower sidebar */
+            }
+            
+            .col-lg-9 {
+                width: 78%; /* Slightly wider content area */
+            }
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--body-font);
+            color: var(--primary-color);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
         p {
-            font-size: 20px;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
         }
 
         li {
-            font-size: 18px;
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
         }
 
-        section {
-            margin-bottom: 4rem;
+        section, .profile-header {
+            margin-bottom: var(--section-spacing);
+            padding: 2rem;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        section:hover, .profile-header:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
         }
 
         .navbar-nav {
-            font-size: 20px;
-            text-align: right;
-            line-height: 0.8;
+            font-size: 1.1rem;
         }
 
         .nav-link {
-            text-align: right;
+            font-family: var (--mono-font);
+            color: var (--dark-color);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
         }
 
-        a {
+        .nav-link:hover, .nav-link.active {
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
             text-decoration: none;
         }
 
+        a {
+            color: var(--accent-color);
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
         a:hover {
-            text-decoration: underline;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border: 5px solid var(--light-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+
+        .social-links a {
+            font-family: var(--mono-font);
+            color: var(--dark-color);
+            font-size: 1.1rem;
+            margin: 0 10px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            background-color: var(--light-color);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            font-feature-settings: "ss01", "ss02", "ss03";
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            text-decoration: none;
+        }
+
+        .social-links i {
+            margin-right: 6px;
+        }
+
+        .section-title {
+            font-family: var(--mono-font);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            letter-spacing: -0.01em;
+            font-feature-settings: "ss01", "ss02", "ss03";
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        section:hover .section-title::after {
+            width: 100px;
+        }
+
+        hr {
+            background-color: var(--secondary-color);
+            opacity: 0.3;
+        }
+
+        #btn-back-to-top {
+            background-color: var(--primary-color);
+            width: 50px;
+            height: 50px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        #btn-back-to-top:hover {
+            background-color: var(--accent-color);
+            opacity: 1;
+            transform: translateY(-5px);
+        }
+
+        footer {
+            background-color: var(--light-color);
+            padding: 1.5rem 0;
+            color: var(--dark-color);
+        }
+
+        .publication-item {
+            padding: 1rem;
+            border-left: 3px solid transparent;
+            transition: all 0.3s ease;
+            border-radius: 0 6px 6px 0;
+            margin-bottom: 1rem;
+        }
+
+        .publication-item:hover {
+            border-left-color: var(--accent-color);
+            background-color: var(--light-color);
+            transform: translateX(5px);
+        }
+
+        .publication-item h5 {
+            font-family: var(--mono-font);
+            font-weight: 500;
+            font-feature-settings: "ss01", "ss02", "ss03";
+        }
+
+        .publication-item h5 a {
+            font-feature-settings: "ss01", "ss02", "ss03";
+        }
+
+        .highlight {
+            font-family: var(--mono-font);
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .sticky-sidebar {
+            position: sticky;
+            top: 20px;
+        }
+
+        @media (max-width: 767px) {
+            .mobile-nav {
+                display: flex;
+                justify-content: flex-start;
+                background-color: var(--card-bg);
+                padding: 0.75rem;
+                border-radius: 12px;
+                margin-bottom: 2rem;
+                box-shadow: 0 4px 12px rgba(149, 157, 165, 0.1);
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scroll-behavior: smooth;
+                white-space: nowrap;
+            }
+
+            .mobile-nav a {
+                font-family: var(--mono-font);
+                display: inline-block;
+                white-space: nowrap;
+                margin: 0 8px;
+                font-size: 0.9rem;
+                padding: 0.5rem 0.8rem;
+                border-radius: 20px;
+                background-color: var(--light-color);
+                color: var(--dark-color);
+                transition: all 0.3s ease;
+                font-weight: 500;
+            }
+
+            .mobile-nav a:hover, .mobile-nav a.active {
+                background-color: var(--secondary-color);
+                transform: translateY(-2px);
+            }
+
+            section {
+                padding: 1.5rem;
+                margin-bottom: 2rem;
+            }
+            
+            .profile-image {
+                width: 140px;
+                height: 140px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            p {
+                font-size: 1rem;
+                margin-bottom: 1.2rem;
+            }
+            
+            .publication-item h5 {
+                font-size: 1.1rem;
+            }
+            
+            .social-links {
+                flex-wrap: wrap;
+            }
+            
+            .social-links a {
+                margin: 5px;
+                font-size: 0.9rem;
+                padding: 6px 10px;
+            }
+            
+            footer {
+                text-align: center;
+                font-size: 0.9rem;
+            }
+            
+            footer .col-md-6.text-md-end {
+                text-align: center !important;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .list-group-item {
+                padding: 0.75rem 0;
+            }
+            
+            .nav-link, .social-links a, .publication-item a {
+                padding: 10px;  /* Larger touch target */
+            }
+            
+            #btn-back-to-top {
+                width: 45px;
+                height: 45px;
+                opacity: 0.9;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .col-md-6 {
+                margin-bottom: 1rem;
+            }
+        }
+
+        code, pre {
+            font-family: var(--mono-font);
+            font-feature-settings: "calt", "liga", "dlig";
+        }
+
+        /* Add these styles to your existing style block */
+        
+        /* Truncate long venue names with ellipsis */
+        .venue-badge {
+            max-width: 150px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: inline-block;
+        }
+        
+        /* Make badges more responsive on small screens */
+        @media (max-width: 575px) {
+            .venue-badge {
+                max-width: 120px;
+            }
+            
+            .publication-meta {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+            
+            /* Create a full-width container for badges on very small screens */
+            @media (max-width: 400px) {
+                .venue-badge {
+                    max-width: 100%;
+                }
+                
+                .publication-meta {
+                    flex-direction: column;
+                    align-items: flex-start !important;
+                }
+                
+                .publication-meta .badge {
+                    margin-bottom: 0.25rem;
+                }
+            }
+        }
+
+        /* Theme toggle button */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1030;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: var(--card-bg);
+            border: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--text-color);
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Additional dark theme adjustments */
+        [data-bs-theme="dark"] .bg-light {
+            background-color: #252525 !important;
+        }
+        
+        [data-bs-theme="dark"] .text-muted {
+            color: #adb5bd !important;
+        }
+        
+        [data-bs-theme="dark"] .badge.bg-light {
+            background-color: #2c2c2c !important;
+            color: #e0e0e0 !important;
+        }
+        
+        [data-bs-theme="dark"] section:hover,
+        [data-bs-theme="dark"] .profile-header:hover {
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        [data-bs-theme="dark"] footer {
+            background-color: #171717;
+        }
+        
+        [data-bs-theme="dark"] .publication-item:hover {
+            background-color: #252525;
+        }
+        
+        [data-bs-theme="dark"] img.profile-image {
+            border-color: var(--light-color);
+            filter: brightness(0.95);
+        }
+        
+        /* Adjust cards in dark mode */
+        [data-bs-theme="dark"] .card {
+            background-color: #252525 !important;
+        }
+        
+        /* Animation for theme toggle */
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .theme-toggle i {
+            transition: transform 0.5s ease;
+        }
+        
+        .theme-toggle:active i {
+            animation: rotate 0.5s ease;
+        }
+
+        /* Update the section and profile-header shadow styling */
+        [data-bs-theme="dark"] section,
+        [data-bs-theme="dark"] .profile-header,
+        [data-bs-theme="dark"] .card,
+        [data-bs-theme="dark"] .mobile-nav,
+        [data-bs-theme="dark"] .theme-toggle {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+        
+        [data-bs-theme="dark"] section:hover,
+        [data-bs-theme="dark"] .profile-header:hover,
+        [data-bs-theme="dark"] .card:hover {
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Update other dark mode elements with stronger shadows */
+        [data-bs-theme="dark"] #btn-back-to-top {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+        }
+        
+        [data-bs-theme="dark"] #btn-back-to-top:hover {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Enhanced profile image shadow */
+        [data-bs-theme="dark"] .profile-image {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Social links better shadows in dark mode */
+        [data-bs-theme="dark"] .social-links a {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        [data-bs-theme="dark"] .social-links a:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        
+        /* Also enhance the cards in both light and dark mode */
+        .card {
+            border: none;
+            box-shadow: 0 8px 20px rgba(149, 157, 165, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(149, 157, 165, 0.2);
         }
     </style>
 </head>
 
 <body>
-    <header>
-        <div class="container">
-            <div class="text-center mt-4 mb-5">
-                <img src="assets\img\oscar2_0_upscaled_square.jpg" class="rounded-circle border shadow-sm"
-                    alt="Profile Picture" height="150px">
-                <h1 class="mt-2">Oscar Sainz</h1>
-                <div class="social-links mt-3 d-flex justify-content-center gap-3">
-                    <div>
-                        <a href="https://github.com/osainz59" class="text-dark text-decoration-none">
-                            <i class="bi bi-github"></i> GitHub
-                        </a>
-                    </div>
-                    <div>
-                        <a href="https://scholar.google.es/citations?user=3Z5zok8AAAAJ"
-                            class="text-dark text-decoration-none">
-                            <i class="bi bi-mortarboard"></i> Scholar
-                        </a>
-                    </div>
-                    <div>
-                        <a href="https://x.com/osainz59" class="text-dark text-decoration-none">
-                            <i class="bi bi-twitter-x"></i> Twitter
-                        </a>
-                    </div>
-                    <div>
-                        <a href="mailto:oscar.sainz@ehu.eus" class="text-dark text-decoration-none">
-                            <i class="bi bi-envelope"></i> oscar.sainz@ehu.eus
-                        </a>
-                    </div>
-                </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+        <i class="bi bi-sun-fill"></i>
+    </button>
+    
+    <div class="container main-content mt-4 mb-5">
+        <div class="profile-header text-center mb-5 animate__animated animate__fadeIn">
+            <img src="assets/img/oscar2_0_upscaled_square.jpg" class="profile-image rounded-circle mb-3"
+                alt="Profile Picture">
+            <h1 class="mb-3">Oscar Sainz</h1>
+            <p class="lead mb-3">Postdoctoral Researcher | University of the Basque Country | HiTZ Center</p>
+            <div class="social-links d-flex flex-wrap justify-content-center gap-2">
+                <a href="https://github.com/osainz59" target="_blank">
+                    <i class="bi bi-github"></i> GitHub
+                </a>
+                <a href="https://scholar.google.es/citations?user=3Z5zok8AAAAJ" target="_blank">
+                    <i class="bi bi-mortarboard"></i> Scholar
+                </a>
+                <a href="https://x.com/osainz59" target="_blank">
+                    <i class="bi bi-twitter-x"></i> Twitter
+                </a>
+                <a href="mailto:oscar.sainz@ehu.eus">
+                    <i class="bi bi-envelope"></i> Email
+                </a>
             </div>
         </div>
 
-    </header>
+        <div class="d-md-none mobile-nav mb-4">
+            <a href="#about-me" class="active"><i class="bi bi-person"></i> About</a>
+            <a href="#Activities"><i class="bi bi-calendar-event"></i> Activities</a>
+            <a href="#grants-awards"><i class="bi bi-award"></i> Awards</a>
+            <a href="#Students"><i class="bi bi-people"></i> Students</a>
+            <a href="#publications"><i class="bi bi-journal-text"></i> Publications</a>
+        </div>
 
-    <div class="container mt-1">
-        <div class="row mx-4">
-            <div class="col-md-3 d-none d-md-block">
-                <nav class="navbar navbar-expand-lg navbar-light sticky-top">
-                    <div>
-                        <ul class="navbar-nav flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#about-me">About me</a>
+        <div class="row">
+            <div class="col-lg-3 col-md-4 d-none d-md-block">
+                <div class="sticky-sidebar">
+                    <nav class="navbar navbar-light">
+                        <ul class="navbar-nav flex-column w-100">
+                            <li class="nav-item mb-2">
+                                <a class="nav-link active" href="#about-me">
+                                    <i class="bi bi-person me-2"></i>About me
+                                </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#Activities">Activities</a>
+                            <li class="nav-item mb-2">
+                                <a class="nav-link" href="#Activities">
+                                    <i class="bi bi-calendar-event me-2"></i>Activities
+                                </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#grants-awards">Grants and Awards</a>
+                            <li class="nav-item mb-2">
+                                <a class="nav-link" href="#grants-awards">
+                                    <i class="bi bi-award me-2"></i>Grants & Awards
+                                </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#Students">Students</a>
+                            <li class="nav-item mb-2">
+                                <a class="nav-link" href="#Students">
+                                    <i class="bi bi-people me-2"></i>Students
+                                </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#publications">Publications</a>
+                            <li class="nav-item mb-2">
+                                <a class="nav-link" href="#publications">
+                                    <i class="bi bi-journal-text me-2"></i>Publications
+                                </a>
                             </li>
                         </ul>
-                    </div>
-                </nav>
+                    </nav>
+                </div>
             </div>
-            <div class="col-md-9 col-12" id="content">
-
-                <section id="about-me">
-                    <h2>About me</h2>
-                    <hr class="mt-0 mb-3">
+            
+            <div class="col-lg-9 col-md-8" id="content">
+                <section id="about-me" class="animate__animated animate__fadeIn">
+                    <h2 class="section-title">About me</h2>
 
                     <p>I am a postdoctoral researcher at the University of the Basque Country in the HiTZ center and IXA
-                        group. My research interests are focused on low-resource scenarios and particularly on
+                        group. My research interests are focused on <span class="highlight">low-resource scenarios</span> and particularly on
                         low-resource Information Extraction. I obtained my PhD at the University of the Basque Country
                         in 2024. I worked on zero and few-shot Information Extraction using entailment models and making
                         LLMs learn to follow annotation guidelines.</p>
@@ -150,76 +651,114 @@
                         (particularly Basque), and data contamination in LLMs.</p>
                 </section>
 
-                <section id="Activities">
-                    <h2>Activities</h2>
-                    <hr class="mt-0 mb-4">
+                <section id="Activities" class="animate__animated animate__fadeIn">
+                    <h2 class="section-title">Activities</h2>
 
-                    <ul>
-                        <li>Co-organizer of <a href="https://conda-workshop.github.io/">The First Data Contamination
-                                Workshop (CONDA)</a>.</li>
-                        <li>4 months visiting researcher (2024 September-December) at the <a
-                                href="https://www.cis.uni-muenchen.de/ueber_uns/index.html">LMU Munich</a> with Prof.
-                            Dr. Hinrich Schütze.</li>
-                        <li>Active reviewer for ML and NLP conferences: ICLR, *ACL (ARR), EMNLP, LREC, Coling, ... since
-                            2021.</li>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item bg-transparent px-0">
+                            <i class="bi bi-calendar-check me-2 text-primary"></i>
+                            Co-organizer of <a href="https://conda-workshop.github.io/" target="_blank">The First Data Contamination
+                                Workshop (CONDA)</a>.
+                        </li>
+                        <li class="list-group-item bg-transparent px-0">
+                            <i class="bi bi-globe me-2 text-primary"></i>
+                            4 months visiting researcher (2024 September-December) at the <a
+                                href="https://www.cis.uni-muenchen.de/ueber_uns/index.html" target="_blank">LMU Munich</a> with Prof.
+                            Dr. Hinrich Schütze.
+                        </li>
+                        <li class="list-group-item bg-transparent px-0">
+                            <i class="bi bi-file-earmark-text me-2 text-primary"></i>
+                            Active reviewer for ML and NLP conferences: ICLR, *ACL (ARR), EMNLP, LREC, Coling, ... since
+                            2021.
+                        </li>
                     </ul>
                 </section>
 
-                <section id="grants-awards">
-                    <h2>Grants and Awards</h2>
-                    <hr class="mt-0 mb-4">
+                <section id="grants-awards" class="animate__animated animate__fadeIn">
+                    <h2 class="section-title">Grants and Awards</h2>
 
-                    <ul>
-                        <li><b>Best Resource Paper Award</b> at the ACL 2024</li>
-                        <li><b>Best Reviewer Award</b> at the EMNLP 2023 in the Information Extraction track</li>
-                        <li>Predoc-berri <b>PhD grant</b> by the Basque Government</li>
-                        <li><b>IKASIKER</b> collaboration grant by the Basque Government</li>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item bg-transparent px-0">
+                            <i class="bi bi-trophy-fill me-2 text-warning"></i>
+                            <strong>Best Resource Paper Award</strong> at the ACL 2024
+                        </li>
+                        <li class="list-group-item bg-transparent px-0">
+                            <i class="bi bi-star-fill me-2 text-warning"></i>
+                            <strong>Best Reviewer Award</strong> at the EMNLP 2023 in the Information Extraction track
+                        </li>
+                        <li class="list-group-item bg-transparent px-0">
+                            <i class="bi bi-cash-coin me-2 text-success"></i>
+                            Predoc-berri <strong>PhD grant</strong> by the Basque Government
+                        </li>
+                        <li class="list-group-item bg-transparent px-0">
+                            <i class="bi bi-cash-coin me-2 text-success"></i>
+                            <strong>IKASIKER</strong> collaboration grant by the Basque Government
+                        </li>
                     </ul>
                 </section>
 
-                <section id="Students">
-                    <h2>Students</h2>
-                    <hr class="mt-0 mb-4">
+                <section id="Students" class="animate__animated animate__fadeIn">
+                    <h2 class="section-title">Students</h2>
 
-                    <ul>
-                        <li>Mikel Zubillaga (2022-present): BSc and PhD student at the University of the Basque Country,
-                            co-advised with Oier Lopez de Lacalle and Eneko Agirre.</li>
-                        <li>Neil de la Fuente (2024): Summer internship at HiTZ Center, co-advised with Iker
-                            García-Ferrero and Eneko Agirre.</li>
-                    </ul>
+                    <div class="row gy-4">
+                        <div class="col-md-6">
+                            <div class="card h-100 border-0 bg-light">
+                                <div class="card-body">
+                                    <h5 class="card-title">Mikel Zubillaga</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">2022-present</h6>
+                                    <p class="card-text">BSc and PhD student at the University of the Basque Country,
+                                        co-advised with Oier Lopez de Lacalle and Eneko Agirre.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h-100 border-0 bg-light">
+                                <div class="card-body">
+                                    <h5 class="card-title">Neil de la Fuente</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Summer 2024</h6>
+                                    <p class="card-text">Summer internship at HiTZ Center, co-advised with Iker
+                                        García-Ferrero and Eneko Agirre.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </section>
 
-                <section id="publications">
-                    <h2>Featured publications</h2>
-                    <hr class="mt-0 mb-3">
+                <section id="publications" class="animate__animated animate__fadeIn">
+                    <h2 class="section-title">Featured publications</h2>
 
-                    <p>For more visit my <a href="https://scholar.google.es/citations?user=3Z5zok8AAAAJ&hl=es">Google
+                    <p>For more visit my <a href="https://scholar.google.es/citations?user=3Z5zok8AAAAJ&hl=es" target="_blank">Google
                             Scholar</a> or <a
-                            href="https://www.semanticscholar.org/author/Oscar-Sainz/1724648481">Semantic Scholar</a>
+                            href="https://www.semanticscholar.org/author/Oscar-Sainz/1724648481" target="_blank">Semantic Scholar</a>
                         page.
                     </p>
 
-                    <ul id="publication-list" class="mb-0">
-
-                    </ul>
-
+                    <div id="publication-list" class="mb-0">
+                        <!-- Publications will be loaded here by JavaScript -->
+                    </div>
                 </section>
-
             </div>
         </div>
-
     </div>
 
-    <footer class="py-3 my-4">
-        <p class="text-center text-muted">&copy;2023 Oscar Sainz</p>
+    <footer class="mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2025 Oscar Sainz</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>Last updated: March 2025</p>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <!-- Back to top button -->
-    <button id="btn-back-to-top" class="btn btn-primary rounded-circle position-fixed bottom-0 end-0 m-5"
+    <button id="btn-back-to-top" class="btn rounded-circle position-fixed bottom-0 end-0 m-4"
         style="display: none">
-        <i class="bi bi-arrow-up"></i>
+        <i class="bi bi-arrow-up text-white"></i>
     </button>
-
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -231,12 +770,17 @@
             const navLinks = document.querySelectorAll('.nav-link');
             const sections = document.querySelectorAll('section');
 
+            // Add animation delay to sections
+            sections.forEach((section, index) => {
+                section.classList.add('animate__delay-' + (index * .5) + 's');
+            });
+
             window.addEventListener('scroll', () => {
                 let current = '';
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop;
                     const sectionHeight = section.clientHeight;
-                    if (pageYOffset >= sectionTop - 60) {
+                    if (pageYOffset >= sectionTop - 200) {
                         current = section.getAttribute('id');
                     }
                 });
@@ -246,6 +790,31 @@
                     if (link.getAttribute('href').slice(1) === current) {
                         link.classList.add('active');
                     }
+                });
+
+                const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+                mobileNavLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').slice(1) === current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    setTimeout(() => {
+                        const mobileNav = document.querySelector('.mobile-nav');
+                        const activeLink = document.querySelector('.mobile-nav a.active');
+                        if (activeLink && mobileNav) {
+                            const scrollLeft = activeLink.offsetLeft - (mobileNav.offsetWidth / 2) + (activeLink.offsetWidth / 2);
+                            mobileNav.scrollTo({
+                                left: scrollLeft,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }, 100);
                 });
             });
         });
@@ -277,11 +846,6 @@
         }
 
         function compare_paper(a, b) {
-            // if (a.publicationDate == null) return 1;
-            // if (b.publicationDate == null) return 0;
-            // return a.publicationDate > b.publicationDate ? 0 : 1;
-            // if (a.citationCount == null) return 1;
-            // if (b.citationCount == null) return 0;
             return b.citationCount - a.citationCount;
         }
 
@@ -292,28 +856,36 @@
             if (this.readyState == 4 && this.status == 200) {
                 publications_data = xhttp.response.data;
                 publications_data.sort(compare_paper);
-                console.log(publications_data)
 
                 let pub_html = document.getElementById("publication-list")
                 let i = 0;
                 for (publication of publications_data) {
-                    // pub_html.innerHTML += "<li>";
                     if (i >= 10) break;
 
-                    let _html = '<li class="py-2"><a href="' + publication.url + '" style="text-decoration: none">' + publication.title + '.</a> ';
-                    // pub_html.innerHTML += '<li class="py-2"><a href="' + publication.url + '" style="text-decoration: none">' + publication.title + '.</a>';
+                    let _html = '<div class="publication-item">';
+                    _html += '<h5><a href="' + publication.url + '" target="_blank">' + publication.title + '</a></h5>';
+                    
                     let authors = "";
                     for (author of publication.authors) {
                         if (author.name != "Oscar Sainz") {
                             authors += author.name + ", ";
                         } else {
-                            authors += "<u>" + author.name + "</u>, ";
+                            authors += "<strong>" + author.name + "</strong>, ";
                         }
-
                     }
                     authors = authors.slice(0, -2);
-                    _html += authors + '. ' + publication.year + '. <b>' + publication.venue + '.</b> ';
-                    _html += "</li>";
+                    
+                    _html += '<p class="mb-1">' + authors + '</p>';
+                    _html += '<div class="d-flex publication-meta justify-content-between align-items-center gap-2">';
+                    _html += '<span class="badge bg-light text-dark">' + publication.year + '</span>';
+                    
+                    // Add the venue badge with ellipsis class
+                    _html += '<span class="badge bg-primary venue-badge" title="' + publication.venue + '">' + 
+                              publication.venue + '</span>';
+                    
+                    _html += '</div>';
+                    _html += '</div>';
+                    
                     pub_html.innerHTML += _html;
                     i++;
                 }
@@ -321,6 +893,51 @@
         };
         xhttp.open("GET", "https://api.semanticscholar.org/graph/v1/author/1724648481/papers?fields=url,title,year,authors,citationCount,venue,citationStyles,publicationDate", true);
         xhttp.send();
+        
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        const themeIcon = themeToggle.querySelector('i');
+        
+        // Check for saved theme preference or use device preference
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        // Set the initial theme
+        if (savedTheme) {
+            htmlElement.setAttribute('data-bs-theme', savedTheme);
+            updateThemeIcon(savedTheme);
+        } else if (prefersDarkMode) {
+            htmlElement.setAttribute('data-bs-theme', 'dark');
+            updateThemeIcon('dark');
+        }
+        
+        // Toggle theme when button is clicked
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-bs-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            htmlElement.setAttribute('data-bs-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+        
+        // Update the icon based on current theme
+        function updateThemeIcon(theme) {
+            if (theme === 'dark') {
+                themeIcon.classList.remove('bi-sun-fill');
+                themeIcon.classList.add('bi-moon-fill');
+            } else {
+                themeIcon.classList.remove('bi-moon-fill');
+                themeIcon.classList.add('bi-sun-fill');
+            }
+        }
+        
+        // Update theme icon when the document is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentTheme = htmlElement.getAttribute('data-bs-theme');
+            updateThemeIcon(currentTheme);
+        });
     </script>
 </body>
 
