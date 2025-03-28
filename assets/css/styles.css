@@ -1,0 +1,496 @@
+:root {
+    --primary-color: #3d5a80;
+    --secondary-color: #98c1d9;
+    --accent-color: #ee6c4d;
+    --light-color: #f0f5f9;
+    --dark-color: #293241;
+    --text-color: #333;
+    --bg-color: #f7f9fc;
+    --card-bg: #ffffff;
+    --section-spacing: 4rem;
+    /* --mono-font: 'MonaspaceVariable', 'Monaspace Neon', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    --body-font: 'MonaspaceVariable', 'Monaspace Neon', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; */
+    --mono-font: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    --body-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+}
+
+[data-bs-theme="dark"] {
+    --primary-color: #98c1d9;
+    --secondary-color: #3d5a80;
+    --accent-color: #ee6c4d;
+    --light-color: #293241;
+    --dark-color: #f0f5f9;
+    --text-color: #e0e0e0;
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+}
+
+body {
+    font-family: var(--body-font);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    -webkit-overflow-scrolling: touch;
+}
+
+.container {
+    max-width: 1200px;
+}
+
+.container.main-content {
+    max-width: 1100px !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 1400px) {
+    .container.main-content {
+        max-width: 1000px !important; /* Narrower on very large screens */
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+    .container.main-content {
+        max-width: 980px !important;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .container.main-content {
+        max-width: 900px !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .container.main-content {
+        max-width: 90% !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .container.main-content {
+        max-width: 95% !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-lg-3 {
+        width: 22%; /* Slightly narrower sidebar */
+    }
+    
+    .col-lg-9 {
+        width: 78%; /* Slightly wider content area */
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--body-font);
+    color: var(--primary-color);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+li {
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+}
+
+section, .profile-header {
+    margin-bottom: var(--section-spacing);
+    padding: 2rem;
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    transition: background-color 0.3s ease;
+}
+
+section:hover, .profile-header:hover {
+    transform: none;
+    box-shadow: none;
+    background-color: var(--bg-color);
+}
+
+.navbar-nav {
+    font-size: 1.1rem;
+}
+
+.nav-link {
+    font-family: var (--mono-font);
+    color: var (--dark-color);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+    text-decoration: none;
+}
+
+a {
+    color: var(--accent-color);
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+a:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* Add this to remove underlines from links in buttons */
+.social-links a,
+.mobile-nav a,
+.nav-link {
+    text-decoration: none;
+}
+
+.social-links a:hover,
+.mobile-nav a:hover,
+.nav-link:hover {
+    text-decoration: none;
+}
+
+.profile-image {
+    width: 180px;
+    height: 180px;
+    border: 3px solid var(--light-color);
+    transition: all 0.3s ease;
+}
+
+.profile-image:hover {
+    transform: none;
+}
+
+.social-links a {
+    font-family: var(--mono-font);
+    color: var(--dark-color);
+    font-size: 1.1rem;
+    margin: 0 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background-color: var(--light-color);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    transition: background-color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    font-feature-settings: "ss01", "ss02", "ss03";
+}
+
+.social-links a:hover {
+    background-color: var(--secondary-color);
+    transform: none;
+    text-decoration: none;
+}
+
+.section-title {
+    font-family: var(--mono-font);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    letter-spacing: -0.01em;
+    font-feature-settings: "ss01", "ss02", "ss03";
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+section:hover .section-title::after {
+    width: 100px;
+}
+
+hr {
+    background-color: var(--secondary-color);
+    opacity: 0.3;
+}
+
+#btn-back-to-top {
+    background-color: var(--primary-color);
+    width: 50px;
+    height: 50px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    opacity: 0.8;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+#btn-back-to-top:hover {
+    background-color: var(--accent-color);
+    opacity: 1;
+    transform: none;
+}
+
+footer {
+    background-color: var(--light-color);
+    padding: 1.5rem 0;
+    color: var(--dark-color);
+}
+
+.publication-item {
+    padding: 1rem;
+    border-left: 3px solid transparent;
+    transition: background-color 0.3s ease;
+    border-radius: 0 6px 6px 0;
+    margin-bottom: 1rem;
+}
+
+.publication-item:hover {
+    border-left-color: var(--accent-color);
+    background-color: var(--light-color);
+    transform: none;
+}
+
+.highlight {
+    font-family: var(--mono-font);
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.sticky-sidebar {
+    position: sticky;
+    top: 20px;
+}
+
+@media (max-width: 767px) {
+    .mobile-nav {
+        display: flex;
+        justify-content: flex-start;
+        background-color: var(--card-bg);
+        padding: 0.75rem;
+        border-radius: 12px;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 12px rgba(149, 157, 165, 0.1);
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+        white-space: nowrap;
+    }
+
+    .mobile-nav a {
+        font-family: var(--mono-font);
+        display: inline-block;
+        white-space: nowrap;
+        margin: 0 8px;
+        font-size: 0.9rem;
+        padding: 0.5rem 0.8rem;
+        border-radius: 20px;
+        background-color: var(--light-color);
+        color: var(--dark-color);
+        transition: all 0.3s ease;
+        font-weight: 500;
+    }
+
+    .mobile-nav a:hover, .mobile-nav a.active {
+        background-color: var(--secondary-color);
+        transform: translateY(-2px);
+    }
+
+    section {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .profile-image {
+        width: 140px;
+        height: 140px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    p {
+        font-size: 1rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .publication-item h5 {
+        font-size: 1.1rem;
+    }
+    
+    .social-links {
+        flex-wrap: wrap;
+    }
+    
+    .social-links a {
+        margin: 5px;
+        font-size: 0.9rem;
+        padding: 6px 10px;
+    }
+    
+    footer {
+        text-align: center;
+        font-size: 0.9rem;
+    }
+    
+    footer .col-md-6.text-md-end {
+        text-align: center !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .list-group-item {
+        padding: 0.75rem 0;
+    }
+    
+    .nav-link, .social-links a, .publication-item a {
+        padding: 10px;  /* Larger touch target */
+    }
+    
+    #btn-back-to-top {
+        width: 45px;
+        height: 45px;
+        opacity: 0.9;
+    }
+}
+
+@media (max-width: 767px) {
+    .col-md-6 {
+        margin-bottom: 1rem;
+    }
+}
+
+code, pre {
+    font-family: var(--mono-font);
+    font-feature-settings: "calt", "liga", "dlig";
+}
+
+/* Add these styles to your existing style block */
+
+/* Truncate long venue names with ellipsis */
+.venue-badge {
+    max-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+}
+
+/* Make badges more responsive on small screens */
+@media (max-width: 575px) {
+    .venue-badge {
+        max-width: 120px;
+    }
+    
+    .publication-meta {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    /* Create a full-width container for badges on very small screens */
+    @media (max-width: 400px) {
+        .venue-badge {
+            max-width: 100%;
+        }
+        
+        .publication-meta {
+            flex-direction: column;
+            align-items: flex-start !important;
+        }
+        
+        .publication-meta .badge {
+            margin-bottom: 0.25rem;
+        }
+    }
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1030;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: var(--card-bg);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: var(--text-color);
+}
+
+.theme-toggle:hover {
+    transform: none;
+    background-color: var(--light-color);
+}
+
+/* Additional dark theme adjustments */
+[data-bs-theme="dark"] .bg-light {
+    background-color: #252525 !important;
+}
+
+[data-bs-theme="dark"] .text-muted {
+    color: #adb5bd !important;
+}
+
+[data-bs-theme="dark"] .badge.bg-light {
+    background-color: #2c2c2c !important;
+    color: #e0e0e0 !important;
+}
+
+[data-bs-theme="dark"] section:hover,
+[data-bs-theme="dark"] .profile-header:hover {
+    box-shadow: none;
+}
+
+[data-bs-theme="dark"] footer {
+    background-color: #171717;
+}
+
+[data-bs-theme="dark"] .publication-item:hover {
+    background-color: #252525;
+}
+
+[data-bs-theme="dark"] img.profile-image {
+    border-color: var(--light-color);
+    filter: brightness(0.95);
+}
+
+/* Adjust cards in dark mode */
+[data-bs-theme="dark"] .card {
+    background-color: #252525 !important;
+}
+
+/* Remove all dark mode shadows */
+[data-bs-theme="dark"] section,
+[data-bs-theme="dark"] .profile-header,
+[data-bs-theme="dark"] .card,
+[data-bs-theme="dark"] .mobile-nav,
+[data-bs-theme="dark"] .theme-toggle,
+[data-bs-theme="dark"] #btn-back-to-top,
+[data-bs-theme="dark"] .profile-image,
+[data-bs-theme="dark"] .social-links a {
+    box-shadow: none;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-bs-theme="dark"] section:hover,
+[data-bs-theme="dark"] .profile-header:hover,
+[data-bs-theme="dark"] .card:hover,
+[data-bs-theme="dark"] #btn-back-to-top:hover {
+    box-shadow: none;
+}
