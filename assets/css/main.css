@@ -5,7 +5,7 @@ body {
     background-color: white;
     color: #333;
     line-height: 1.6;
-    max-width: 1200px;
+    max-width: 980px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -149,7 +149,7 @@ section {
 }
 
 .profile-image {
-    flex: 0 0 200px;
+    flex: 0 0 256px;
 }
 
 .profile-image img {
@@ -164,32 +164,22 @@ section {
     min-width: 300px;
 }
 
-.profile-content h1 {
-    margin-bottom: 10px;
-}
-
 .profile-content .title {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: #444;
-    margin-bottom: 5px;
 }
 
 .profile-content .institution {
     font-style: italic;
     color: #666;
-    margin-bottom: 15px;
-}
-
-.contact-info {
-    margin-top: 20px;
 }
 
 .contact-info p {
-    margin: 5px 0;
+    margin: 2px 0;
 }
 
 .social-links {
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
 .social-links a {
