@@ -1,0 +1,196 @@
+/* Responsive Styles */
+
+/* Large screens (default) */
+/* Styles already defined in main.css */
+
+/* Medium-sized screens (tablets, small laptops) */
+@media screen and (max-width: 992px) {
+    body {
+        padding: 0 15px;
+    }
+    
+    .profile {
+        gap: 20px;
+    }
+}
+
+/* Small screens (tablets, large phones) */
+@media screen and (max-width: 768px) {
+    header {
+        padding: 20px 0;
+        margin-bottom: 30px;
+    }
+    
+    nav ul {
+        flex-wrap: wrap;
+    }
+    
+    nav li {
+        margin: 5px 10px;
+    }
+    
+    .profile {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .profile-image {
+        flex: 0 0 180px;
+        margin: 0 auto;
+    }
+    
+    .profile-content {
+        text-align: center;
+    }
+    
+    .social-links {
+        justify-content: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .social-links a {
+        margin: 0 5px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    h2 {
+        font-size: 1.4rem;
+    }
+    
+    h3 {
+        font-size: 1.1rem;
+    }
+}
+
+/* Extra small screens (phones) */
+@media screen and (max-width: 480px) {
+    header {
+        padding: 15px 0;
+        margin-bottom: 20px;
+    }
+    
+    .logo h1 {
+        font-size: 1.6rem;
+    }
+    
+    .subtitle {
+        font-size: 0.9rem;
+    }
+    
+    nav ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    nav li {
+        margin: 3px 8px;
+    }
+    
+    .profile-image {
+        flex: 0 0 150px;
+    }
+    
+    .profile-content .title {
+        font-size: 1rem;
+    }
+    
+    .profile-content .institution {
+        font-size: 0.9rem;
+    }
+    
+    .contact-info {
+        font-size: 0.9rem;
+    }
+    
+    .social-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .social-links a {
+        margin: 5px 0;
+    }
+    
+    section {
+        margin-bottom: 30px;
+    }
+    
+    footer {
+        padding: 15px 0;
+    }
+    
+    footer ul {
+        flex-wrap: wrap;
+    }
+    
+    footer li {
+        margin: 5px;
+    }
+}
+
+/* Print styles - for when someone prints your CV */
+@media print {
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    
+    header {
+        padding: 10px 0;
+        margin-bottom: 20px;
+    }
+    
+    nav {
+        display: none;
+    }
+    
+    .profile {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+    }
+    
+    .profile-image {
+        flex: 0 0 100px;
+    }
+    
+    a {
+        text-decoration: none;
+        color: #000;
+    }
+    
+    .social-links a::after {
+        content: " (" attr(href) ")";
+        font-size: 0.8rem;
+        color: #666;
+    }
+    
+    footer {
+        display: none;
+    }
+    
+    section {
+        page-break-inside: avoid;
+    }
+    
+    h2 {
+        page-break-after: avoid;
+    }
+    
+    h3 {
+        page-break-after: avoid;
+    }
+    
+    img {
+        max-width: 100% !important;
+    }
+}

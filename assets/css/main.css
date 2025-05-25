@@ -1,0 +1,603 @@
+/* Base Styles */
+body {
+    margin: 0;
+    font-family: 'Open Sans', Arial, sans-serif;
+    background-color: white;
+    color: #333;
+    line-height: 1.6;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5 {
+    margin: 0;
+    font-weight: 500;
+    color: #222;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+h5 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    color: #2962FF;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: #0039CB;
+    text-decoration: none;
+}
+
+/* Header */
+header {
+    background-color: white;
+    padding: 30px 0;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    font-style: italic;
+    color: #555;
+    margin-top: 5px;
+}
+
+/* Navigation */
+nav {
+    margin-top: 20px;
+    width: 100%;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav li {
+    margin: 0 15px;
+}
+
+nav a {
+    color: #333;
+    font-weight: 500;
+    padding: 5px 0;
+    position: relative;
+}
+
+nav a:hover {
+    text-decoration: none;
+}
+
+nav a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #2962FF;
+    transition: width 0.3s;
+}
+
+nav a:hover:after {
+    width: 100%;
+}
+
+/* Main Content */
+main {
+    padding: 0 0 50px 0;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+/* Section Titles */
+.section-title {
+    margin-bottom: 1.5rem;
+    color: #222;
+}
+
+/* Profile Section */
+.profile {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 50px;
+    gap: 30px;
+}
+
+.profile-image {
+    flex: 0 0 200px;
+}
+
+.profile-image img {
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: none;
+    border: 1px solid #eee;
+}
+
+.profile-content {
+    flex: 1;
+    min-width: 300px;
+}
+
+.profile-content h1 {
+    margin-bottom: 10px;
+}
+
+.profile-content .title {
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 5px;
+}
+
+.profile-content .institution {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.contact-info {
+    margin-top: 20px;
+}
+
+.contact-info p {
+    margin: 5px 0;
+}
+
+.social-links {
+    margin-top: 15px;
+}
+
+.social-links a {
+    margin-right: 15px;
+    display: inline-block;
+}
+
+.social-links i {
+    margin-right: 5px;
+}
+
+/* About Section */
+.about p {
+    text-align: justify;
+}
+
+.highlight {
+    color: #2962FF;
+    font-weight: 500;
+}
+
+/* Activities Section */
+.activities {
+    margin-bottom: 40px;
+}
+
+.activities .list-group {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.activities .list-group-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: flex-start;
+    line-height: 1.5;
+}
+
+.activities .list-group-item:last-child {
+    border-bottom: none;
+}
+
+/* Grants and Awards Section */
+.grants {
+    margin-bottom: 40px;
+}
+
+.grants .list-group {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.grants .list-group-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: flex-start;
+    line-height: 1.5;
+}
+
+.grants .list-group-item:last-child {
+    border-bottom: none;
+}
+
+.grants .text-warning {
+    color: #FFC107;
+}
+
+.grants .text-success {
+    color: #28a745;
+}
+
+/* Students Section */
+.students {
+    margin-bottom: 50px;
+}
+
+.students > div {
+    margin-top: 20px;
+}
+
+.students > div > div {
+    margin-bottom: 15px;
+}
+
+.students h4 {
+    color: #333;
+    margin-bottom: 5px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
+    font-size: 1.1rem;
+}
+
+.student-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.student-list li {
+    padding: 5px 15px;
+    border-bottom: 1px solid #f7f7f7;
+    line-height: 1.5;
+}
+
+.student-list li:last-child {
+    border-bottom: none;
+}
+
+/* Recent Work Section */
+.recent-work ul {
+    list-style: none;
+    padding: 0;
+}
+
+.recent-work li {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.recent-work li:last-child {
+    border-bottom: none;
+}
+
+/* Publications Section */
+.publications {
+    margin-bottom: 50px;
+}
+
+.publications > p {
+    margin-bottom: 25px;
+    font-style: italic;
+    color: #666;
+}
+
+#publication-list {
+    margin-top: 30px;
+}
+
+.publication-item {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.publication-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.publication-item h5 {
+    margin-bottom: 10px;
+    font-weight: 500;
+    line-height: 1.4;
+    font-size: 1.1rem;
+}
+
+.publication-item h5 a {
+    color: #333;
+    text-decoration: none;
+}
+
+.publication-item h5 a:hover {
+    color: #2962FF;
+    text-decoration: underline;
+}
+
+.publication-item p {
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.publication-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+.venue-badge {
+    color: #333;
+    padding: 3px 0;
+    font-size: 0.9rem;
+}
+
+/* Activities and Grants Sections */
+.activities, .grants {
+    margin-bottom: 40px;
+}
+
+.activities .list-group, .grants .list-group {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.activities .list-group-item, .grants .list-group-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: flex-start;
+    line-height: 1.5;
+}
+
+.activities .list-group-item:last-child, .grants .list-group-item:last-child {
+    border-bottom: none;
+}
+
+/* Icon replacement */
+.activities .bi, .grants .bi {
+    margin-right: 10px;
+    width: 20px;
+    color: #2962FF;
+}
+
+.activities .bi::before, .grants .bi::before {
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 0.9rem;
+}
+
+.bi-calendar-check::before {
+    content: "\f274";
+}
+
+.bi-globe::before {
+    content: "\f0ac";
+}
+
+.bi-file-earmark-text::before {
+    content: "\f15c";
+}
+
+.bi-trophy-fill::before {
+    content: "\f091";
+    color: #f9a825;
+}
+
+.bi-star-fill::before {
+    content: "\f005";
+    color: #f9a825;
+}
+
+.bi-cash-coin::before {
+    content: "\f51e";
+    color: #43a047;
+}
+
+/* Footer */
+footer {
+    background-color: white;
+    padding: 20px 0;
+    text-align: center;
+    border-top: 1px solid #eee;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0 0 0;
+    display: flex;
+    justify-content: center;
+}
+
+footer li {
+    margin: 0 10px;
+}
+
+footer a {
+    color: #666;
+    font-size: 0.85rem;
+}
+
+/* Back to Top Button */
+#btn-back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    width: 40px;
+    height: 40px;
+    background-color: #2962FF;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: none;
+    z-index: 999;
+    outline: none;
+}
+
+#btn-back-to-top .bi-arrow-up::before {
+    font-family: 'Font Awesome 6 Free';
+    content: "\f062";
+    color: white;
+    font-weight: 900;
+}
+
+/* Utility Classes */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.text-primary {
+    color: #2962FF !important;
+}
+
+.text-warning {
+    color: #f9a825 !important;
+}
+
+.text-success {
+    color: #43a047 !important;
+}
+
+.bg-transparent {
+    background-color: transparent !important;
+}
+
+.px-0 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.me-2 {
+    margin-right: 0.5rem !important;
+}
+
+.mb-0 {
+    margin-bottom: 0 !important;
+}
+
+/* Remove all shadows */
+.profile-image img {
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: none;
+    border: 1px solid #eee;
+}
+
+/* Fix for spacing issues with inline elements */
+
+/* Add proper spacing around inline elements */
+a, strong, em, span,
+a, strong, em, span.highlight {
+    display: inline-block;
+    white-space: normal;
+}
+
+/* Ensure spaces are preserved */
+.list-group-item a,
+.list-group-item strong,
+p a,
+p strong,
+p em,
+p span.highlight {
+    margin-left: 0.2em;
+    margin-right: 0.2em;
+}
+
+/* Fix for first/last elements in a container */
+p a:first-child,
+p strong:first-child,
+p em:first-child,
+p span.highlight:first-child,
+li a:first-child,
+li strong:first-child {
+    margin-left: 0;
+}
+
+p a:last-child,
+p strong:last-child,
+p em:last-child,
+p span.highlight:last-child,
+li a:last-child,
+li strong:last-child {
+    margin-right: 0;
+}
+
+/* Special case for icons that shouldn't have margins */
+.social-links a i,
+.list-group-item a.bi {
+    margin: 0;
+}
+
+/* Fix for social links specific spacing */
+.social-links a {
+    margin-right: 15px;
+    display: inline-block;
+}
+
+/* Fix for icon links in lists */
+.list-group-item a.bi {
+    margin-right: 10px;
+    display: inline-block;
+}

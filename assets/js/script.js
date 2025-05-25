@@ -1,3 +1,25 @@
+document.addEventListener("DOMContentLoaded", function() {
+    // Smooth scrolling for navigation links
+    const links = document.querySelectorAll('a[href^="#"]');
+    links.forEach(link => {
+        link.addEventListener("click", function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute("href");
+            const targetElement = document.querySelector(targetId);
+            targetElement.scrollIntoView({
+                behavior: "smooth"
+            });
+        });
+    });
+
+    // Toggle mobile navigation
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    navToggle.addEventListener("click", function() {
+        navMenu.classList.toggle('active');
+    });
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav-link');
     const sections = document.querySelectorAll('section');
@@ -73,8 +95,11 @@ function scrollFunction() {
 back_to_top_btn.addEventListener("click", backToTop);
 
 function backToTop() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
+    targetElement = document.querySelector("header");
+    // Scroll to the header element smoothly
+    targetElement.scrollIntoView({
+        behavior: "smooth"
+    });
 }
 
 function compare_paper(a, b) {
@@ -109,7 +134,7 @@ xhttp.onreadystatechange = function () {
             
             _html += '<p class="mb-1">' + authors + '</p>';
             _html += '<div class="d-flex publication-meta justify-content-between align-items-center gap-2">';
-            _html += '<span class="badge bg-light text-dark">' + publication.year + '</span>';
+            _html += '<span class="badge bg-light text-dark">' + publication.year + '</span> ';
             
             // Add the venue badge with ellipsis class
             _html += '<span class="badge bg-primary venue-badge" title="' + publication.venue + '">' + 
