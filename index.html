@@ -52,6 +52,9 @@
 </head>
 
 <body>
+    <!-- Scroll progress indicator -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+    
     <!-- Theme toggle button -->
     <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
         <i class="fas fa-moon"></i>
@@ -121,6 +124,10 @@
                         <span>Semantic</span>
                     </a>
                 </div>
+            </div>
+            
+            <div class="scroll-hint">
+                <a href="#about"><i class="fas fa-chevron-down"></i></a>
             </div>
         </section>
 
@@ -270,8 +277,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Oscar Sainz. All rights reserved.</p>
-                <p class="made-with">Made with <i class="fas fa-heart"></i> in the Basque Country</p>
+                <p>&copy; <span id="current-year">2024</span> Oscar Sainz. All rights reserved.</p>
             </div>
         </div>
     </footer>

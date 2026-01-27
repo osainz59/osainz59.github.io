@@ -34,6 +34,18 @@
     --border-color: #374151;
 }
 
+/* ===== Scroll Progress ===== */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: var(--primary);
+    z-index: 10001;
+    width: 0%;
+    transition: width 0.1s ease-out;
+}
+
 /* ===== Base Styles ===== */
 *, *::before, *::after {
     box-sizing: border-box;
@@ -85,7 +97,32 @@ a {
 
 a:hover {
     color: var(--primary-dark);
-    text-decoration: underline;
+}
+
+/* Animated underline for content links */
+.about-content a,
+.activity-list a,
+.publications-intro a {
+    position: relative;
+}
+
+.about-content a::after,
+.activity-list a::after,
+.publications-intro a::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--primary);
+    transition: width 0.25s ease;
+}
+
+.about-content a:hover::after,
+.activity-list a:hover::after,
+.publications-intro a:hover::after {
+    width: 100%;
 }
 
 /* ===== Layout ===== */
@@ -219,36 +256,53 @@ header {
 
 /* ===== Hero / Profile Section ===== */
 .hero-section {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 40px;
-    align-items: start;
-    padding: 60px 0 56px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 80px 0 60px;
+}
+
+.profile-image {
+    margin-bottom: 24px;
 }
 
 .profile-image img {
-    width: 180px;
-    height: 180px;
+    width: 160px;
+    height: 160px;
     object-fit: cover;
-    border-radius: var(--border-radius);
-    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    border: 3px solid var(--border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-image img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="dark"] .profile-image img:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
 }
 
 .profile-content h1 {
     margin-bottom: 8px;
+    font-size: 2.25rem;
+    font-weight: 700;
 }
 
 .profile-content .title {
-    font-size: 1.1rem;
-    color: var(--text-secondary);
-    margin-bottom: 8px;
+    font-size: 1.15rem;
+    color: var(--primary);
+    font-weight: 500;
+    margin-bottom: 16px;
 }
 
 .profile-content .institution {
-    color: var(--text-tertiary);
+    color: var(--text-secondary);
     font-size: 0.95rem;
-    margin-bottom: 20px;
-    line-height: 1.8;
+    margin-bottom: 24px;
+    line-height: 2;
 }
 
 .profile-content .institution i {
@@ -258,15 +312,17 @@ header {
 }
 
 .contact-info {
-    margin-bottom: 16px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 24px;
 }
 
 .contact-item {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    margin-right: 16px;
-    margin-bottom: 8px;
     color: var(--text-secondary);
     font-size: 0.9rem;
 }
@@ -284,7 +340,8 @@ header {
 .social-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    justify-content: center;
+    gap: 10px;
 }
 
 .social-btn {
@@ -297,13 +354,53 @@ header {
     border-radius: 6px;
     color: var(--text-secondary);
     font-size: 0.85rem;
-    transition: all var(--transition);
+    transition: all 0.2s ease;
 }
 
 .social-btn:hover {
     border-color: var(--primary);
     color: var(--primary);
     text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="dark"] .social-btn:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Scroll Hint */
+.scroll-hint {
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+}
+
+.scroll-hint a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: var(--text-tertiary);
+    transition: all 0.3s ease;
+    animation: bounce 2s infinite;
+}
+
+.scroll-hint a:hover {
+    color: var(--primary);
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-6px);
+    }
+    60% {
+        transform: translateY(-3px);
+    }
 }
 
 /* ===== About Section ===== */
@@ -349,6 +446,14 @@ header {
     border-radius: 20px;
     font-size: 0.85rem;
     color: var(--text-secondary);
+    transition: all 0.2s ease;
+    cursor: default;
+}
+
+.tag:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: rgba(37, 99, 235, 0.05);
 }
 
 /* ===== Activity List ===== */
@@ -454,7 +559,16 @@ header {
 
 .publication-item {
     padding: 16px 0;
+    padding-left: 16px;
     border-bottom: 1px solid var(--border-color);
+    border-left: 3px solid transparent;
+    margin-left: -16px;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.publication-item:hover {
+    border-left-color: var(--primary);
+    background: var(--bg-secondary);
 }
 
 .publication-item:last-child {
@@ -622,6 +736,12 @@ footer {
 
 .made-with i {
     color: #ef4444;
+    animation: heartbeat 1.5s ease infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.15); }
 }
 
 /* ===== Back to Top Button ===== */
@@ -645,6 +765,40 @@ footer {
 
 #btn-back-to-top:hover {
     background: var(--primary-dark);
+}
+
+/* ===== Subtle Entrance Animations ===== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-section {
+    animation: fadeIn 0.6s ease;
+}
+
+section:not(.hero-section) {
+    animation: fadeIn 0.5s ease;
+}
+
+/* Stagger the sections slightly */
+#about { animation-delay: 0.05s; animation-fill-mode: both; }
+#activities { animation-delay: 0.1s; animation-fill-mode: both; }
+#grants { animation-delay: 0.15s; animation-fill-mode: both; }
+#students { animation-delay: 0.2s; animation-fill-mode: both; }
+#publications { animation-delay: 0.25s; animation-fill-mode: both; }
+
+/* Selection color */
+::selection {
+    background: var(--primary);
+    color: white;
+}
+
+/* Smooth focus states for accessibility */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
 }
 
 /* End of main.css */

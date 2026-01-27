@@ -10,8 +10,18 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeSmoothScroll();
     initializeScrollAnimations();
     initializeBackToTop();
+    initializeScrollProgress();
+    initializeCurrentYear();
     loadPublications();
 });
+
+// ===== Current Year =====
+function initializeCurrentYear() {
+    const yearEl = document.getElementById('current-year');
+    if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+    }
+}
 
 // ===== Theme Toggle =====
 function initializeTheme() {
@@ -219,6 +229,22 @@ function initializeBackToTop() {
     
     // Initial check
     toggleBackToTop();
+}
+
+// ===== Scroll Progress =====
+function initializeScrollProgress() {
+    const progressBar = document.getElementById('scroll-progress');
+    if (!progressBar) return;
+    
+    function updateProgress() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        progressBar.style.width = `${Math.min(progress, 100)}%`;
+    }
+    
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
 }
 
 // ===== Load Publications from Semantic Scholar API =====
