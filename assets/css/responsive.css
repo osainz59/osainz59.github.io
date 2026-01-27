@@ -1,196 +1,160 @@
-/* Responsive Styles */
+/* ===== Responsive Styles ===== */
 
-/* Large screens (default) */
-/* Styles already defined in main.css */
-
-/* Medium-sized screens (tablets, small laptops) */
-@media screen and (max-width: 992px) {
-    body {
-        padding: 0 15px;
-    }
-    
-    .profile {
-        gap: 20px;
-    }
-}
-
-/* Small screens (tablets, large phones) */
-@media screen and (max-width: 768px) {
-    header {
-        padding: 20px 0;
-        margin-bottom: 30px;
-    }
-    
-    nav ul {
-        flex-wrap: wrap;
-    }
-    
-    nav li {
-        margin: 5px 10px;
-    }
-    
-    .profile {
-        flex-direction: column;
+/* Tablets (768px - 991px) */
+@media screen and (max-width: 991px) {
+    .hero-section {
+        grid-template-columns: 1fr;
         text-align: center;
+        gap: 24px;
+        padding: 32px 0;
     }
     
     .profile-image {
-        flex: 0 0 180px;
+        order: 1;
+    }
+    
+    .profile-image img {
+        width: 160px;
+        height: 160px;
         margin: 0 auto;
     }
     
     .profile-content {
-        text-align: center;
+        order: 2;
+    }
+    
+    .contact-info {
+        justify-content: center;
+        display: flex;
+        flex-wrap: wrap;
     }
     
     .social-links {
         justify-content: center;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
     }
     
-    .social-links a {
-        margin: 0 5px;
+    .students-container {
+        grid-template-columns: 1fr;
     }
     
-    h1 {
-        font-size: 1.8rem;
-    }
-    
-    h2 {
-        font-size: 1.4rem;
-    }
-    
-    h3 {
-        font-size: 1.1rem;
+    .theme-toggle {
+        top: 70px;
+        right: 16px;
     }
 }
 
-/* Extra small screens (phones) */
-@media screen and (max-width: 480px) {
-    header {
-        padding: 15px 0;
-        margin-bottom: 20px;
+/* Mobile (up to 767px) */
+@media screen and (max-width: 767px) {
+    main {
+        padding: 0 16px 40px;
     }
     
-    .logo h1 {
-        font-size: 1.6rem;
+    .nav-container {
+        padding: 0 16px;
     }
     
-    .subtitle {
-        font-size: 0.9rem;
+    .nav-toggle {
+        display: block;
     }
     
-    nav ul {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
+    .nav-menu {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: var(--bg-primary);
+        border-bottom: 1px solid var(--border-color);
+        flex-direction: column;
+        padding: 8px 16px 16px;
+        display: none;
     }
     
-    nav li {
-        margin: 3px 8px;
+    .nav-menu.active {
+        display: flex;
     }
     
-    .profile-image {
-        flex: 0 0 150px;
+    .nav-link {
+        padding: 12px;
+        text-align: center;
     }
+    
+    .hero-section {
+        padding: 24px 0;
+    }
+    
+    .profile-image img {
+        width: 140px;
+        height: 140px;
+    }
+    
+    h1 { font-size: 1.6rem; }
+    h2 { font-size: 1.2rem; }
     
     .profile-content .title {
         font-size: 1rem;
     }
     
-    .profile-content .institution {
-        font-size: 0.9rem;
+    .social-btn span {
+        display: none;
     }
     
-    .contact-info {
-        font-size: 0.9rem;
-    }
-    
-    .social-links {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .social-links a {
-        margin: 5px 0;
+    .contact-item {
+        font-size: 0.85rem;
     }
     
     section {
-        margin-bottom: 30px;
+        margin-bottom: 32px;
     }
     
-    footer {
-        padding: 15px 0;
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
     }
     
-    footer ul {
-        flex-wrap: wrap;
+    .theme-toggle {
+        width: 36px;
+        height: 36px;
     }
     
-    footer li {
-        margin: 5px;
+    #btn-back-to-top {
+        width: 36px;
+        height: 36px;
+        bottom: 16px;
+        right: 16px;
     }
 }
 
-/* Print styles - for when someone prints your CV */
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    
+    * {
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Print */
 @media print {
+    header, footer, .theme-toggle, #btn-back-to-top {
+        display: none !important;
+    }
+    
     body {
-        font-size: 12pt;
-        line-height: 1.5;
-        max-width: 100%;
-        margin: 0;
-        padding: 0;
+        font-size: 11pt;
+        color: #000;
+        background: #fff;
     }
     
-    header {
-        padding: 10px 0;
-        margin-bottom: 20px;
-    }
-    
-    nav {
-        display: none;
-    }
-    
-    .profile {
-        display: flex;
-        flex-direction: row;
+    .hero-section {
+        grid-template-columns: 120px 1fr;
         gap: 20px;
     }
     
-    .profile-image {
-        flex: 0 0 100px;
-    }
-    
     a {
-        text-decoration: none;
         color: #000;
-    }
-    
-    .social-links a::after {
-        content: " (" attr(href) ")";
-        font-size: 0.8rem;
-        color: #666;
-    }
-    
-    footer {
-        display: none;
-    }
-    
-    section {
-        page-break-inside: avoid;
-    }
-    
-    h2 {
-        page-break-after: avoid;
-    }
-    
-    h3 {
-        page-break-after: avoid;
-    }
-    
-    img {
-        max-width: 100% !important;
+        text-decoration: underline;
     }
 }
