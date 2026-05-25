@@ -481,6 +481,17 @@ header {
     margin-top: 4px;
     width: 18px;
     flex-shrink: 0;
+    min-width: 18px;
+}
+
+.activity-list span {
+    flex: 1;
+    min-width: 0;
+}
+
+.activity-list a {
+    white-space: nowrap;
+    display: inline;
 }
 
 /* ===== Awards List ===== */
