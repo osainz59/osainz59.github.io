@@ -490,7 +490,6 @@ header {
 }
 
 .activity-list a {
-    white-space: nowrap;
     display: inline;
 }
 
