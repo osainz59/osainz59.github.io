@@ -62,35 +62,41 @@ function initializeTheme() {
 // ===== Navigation =====
 function initializeNavigation() {
     const navToggle = document.getElementById('nav-toggle');
-    const navMenu = document.getElementById('nav-menu');
+    const sidebar = document.getElementById('sidebar');
+    const backdrop = document.getElementById('sidebar-backdrop');
     const navLinks = document.querySelectorAll('.nav-link');
     const navbar = document.getElementById('navbar');
-    
-    // Mobile menu toggle
-    if (navToggle && navMenu) {
+
+    // Mobile drawer toggle (sidebar slides in over a dimmed backdrop)
+    function openDrawer() {
+        navToggle?.classList.add('active');
+        navToggle?.setAttribute('aria-expanded', 'true');
+        sidebar?.classList.add('mobile-open');
+        backdrop?.classList.add('visible');
+        document.body.classList.add('menu-open');
+    }
+
+    function closeDrawer() {
+        navToggle?.classList.remove('active');
+        navToggle?.setAttribute('aria-expanded', 'false');
+        sidebar?.classList.remove('mobile-open');
+        backdrop?.classList.remove('visible');
+        document.body.classList.remove('menu-open');
+    }
+
+    if (navToggle && sidebar) {
         navToggle.addEventListener('click', () => {
-            navToggle.classList.toggle('active');
-            navMenu.classList.toggle('active');
-            document.body.classList.toggle('menu-open');
+            const isOpen = sidebar.classList.contains('mobile-open');
+            isOpen ? closeDrawer() : openDrawer();
         });
-        
-        // Close menu when clicking a link
+
+        // Close the drawer when a nav link is used
         navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                navToggle.classList.remove('active');
-                navMenu.classList.remove('active');
-                document.body.classList.remove('menu-open');
-            });
+            link.addEventListener('click', closeDrawer);
         });
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
-                navToggle.classList.remove('active');
-                navMenu.classList.remove('active');
-                document.body.classList.remove('menu-open');
-            }
-        });
+
+        // Close when tapping the dimmed backdrop
+        backdrop?.addEventListener('click', closeDrawer);
     }
     
     // Active link highlighting on scroll
@@ -149,7 +155,9 @@ function initializeSmoothScroll() {
             const targetElement = document.querySelector(targetId);
             
             if (targetElement) {
-                const headerOffset = 90;
+                // Only the mobile top bar overlaps content; the sidebar
+                // layout on desktop needs no extra offset.
+                const headerOffset = window.innerWidth <= 900 ? 76 : 24;
                 const elementPosition = targetElement.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
                 
@@ -251,7 +259,7 @@ function initializeScrollProgress() {
 function loadPublications() {
     const publicationList = document.getElementById('publication-list');
     if (!publicationList) return;
-    
+
     const API_URL = 'https://api.semanticscholar.org/graph/v1/author/1724648481/papers?fields=url,title,year,authors,citationCount,venue,publicationDate';
     
     fetch(API_URL)
@@ -261,22 +269,22 @@ function loadPublications() {
         })
         .then(data => {
             const publications = data.data || [];
-            
+
             // Sort by citation count (descending)
             publications.sort((a, b) => (b.citationCount || 0) - (a.citationCount || 0));
-            
+
             // Take top 10
             const topPublications = publications.slice(0, 10);
-            
+
             if (topPublications.length === 0) {
                 publicationList.innerHTML = '<p class="no-publications">No publications found.</p>';
                 return;
             }
-            
+
             // Generate HTML
             const html = topPublications.map(pub => createPublicationCard(pub)).join('');
             publicationList.innerHTML = html;
-            
+
             // Animate cards
             const cards = publicationList.querySelectorAll('.publication-item');
             cards.forEach((card, index) => {
@@ -289,8 +297,8 @@ function loadPublications() {
             publicationList.innerHTML = `
                 <div class="error-message">
                     <i class="fas fa-exclamation-circle"></i>
-                    <p>Unable to load publications. Please check my 
-                    <a href="https://scholar.google.es/citations?user=3Z5zok8AAAAJ&hl=es" target="_blank">Google Scholar</a> 
+                    <p>Unable to load publications. Please check my
+                    <a href="https://scholar.google.es/citations?user=3Z5zok8AAAAJ&hl=es" target="_blank">Google Scholar</a>
                     page directly.</p>
                 </div>
             `;
@@ -345,13 +353,15 @@ document.documentElement.classList.add('js-loaded');
 
 // Handle keyboard navigation
 document.addEventListener('keydown', (e) => {
-    // Close mobile menu on Escape
+    // Close mobile drawer on Escape
     if (e.key === 'Escape') {
         const navToggle = document.getElementById('nav-toggle');
-        const navMenu = document.getElementById('nav-menu');
-        if (navToggle?.classList.contains('active')) {
-            navToggle.classList.remove('active');
-            navMenu?.classList.remove('active');
+        const sidebar = document.getElementById('sidebar');
+        if (sidebar?.classList.contains('mobile-open')) {
+            navToggle?.classList.remove('active');
+            navToggle?.setAttribute('aria-expanded', 'false');
+            sidebar.classList.remove('mobile-open');
+            document.getElementById('sidebar-backdrop')?.classList.remove('visible');
             document.body.classList.remove('menu-open');
         }
     }
